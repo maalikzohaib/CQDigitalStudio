@@ -76,9 +76,9 @@ export default function Footer() {
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link href={link.path}>
-                    <a className="text-muted-foreground hover:text-primary transition-colors text-sm" data-testid={`footer-link-${link.label.toLowerCase()}`}>
+                    <span className="text-muted-foreground hover:text-primary transition-colors text-sm cursor-pointer" data-testid={`footer-link-${link.label.toLowerCase()}`}>
                       {link.label}
-                    </a>
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -91,9 +91,9 @@ export default function Footer() {
               {serviceLinks.map((link) => (
                 <li key={link.path}>
                   <Link href={link.path}>
-                    <a className="text-muted-foreground hover:text-primary transition-colors text-sm" data-testid={`footer-link-${link.label.toLowerCase()}`}>
+                    <span className="text-muted-foreground hover:text-primary transition-colors text-sm cursor-pointer" data-testid={`footer-link-${link.label.toLowerCase()}`}>
                       {link.label}
-                    </a>
+                    </span>
                   </Link>
                 </li>
               ))}

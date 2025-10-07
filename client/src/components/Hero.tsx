@@ -1,17 +1,22 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { Link } from "wouter";
+import { useParallax } from "@/hooks/useScrollAnimation";
 import heroImage from "@assets/generated_images/Studio_hero_background_f49db05f.png";
 
 export default function Hero() {
+  const parallaxRef = useRef<HTMLDivElement>(null);
+  useParallax(parallaxRef, 0.3);
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div 
-        className="absolute inset-0 bg-cover bg-center"
+        ref={parallaxRef}
+        className="absolute inset-0 bg-cover bg-center will-change-transform"
         style={{ 
           backgroundImage: `url(${heroImage})`,
-          transform: 'scale(1.1)',
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background" />

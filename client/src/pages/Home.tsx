@@ -5,12 +5,14 @@ import PortfolioCard from "@/components/PortfolioCard";
 import { Camera, Video, Users, Package } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import weddingImage from "@assets/generated_images/Wedding_portfolio_sample_1f6f9bd5.png";
 import eventImage from "@assets/generated_images/Event_portfolio_sample_f4a5e768.png";
 import portraitImage from "@assets/generated_images/Portrait_portfolio_sample_63794526.png";
 import productImage from "@assets/generated_images/Product_portfolio_sample_6fc4bba1.png";
 
 export default function Home() {
+  useScrollAnimation();
   const services = [
     {
       icon: Camera,
@@ -42,19 +44,14 @@ export default function Home() {
 
       <section className="py-24 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16" data-scroll-animation="fade-up">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
               Our Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From intimate moments to grand celebrations, we bring your vision to life
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
@@ -66,19 +63,14 @@ export default function Home() {
 
       <section className="py-24 px-6 lg:px-8 bg-card">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16" data-scroll-animation="fade-up">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
               Featured Work
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Explore our collection of stunning photography and videography
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {portfolioItems.map((item, index) => (
@@ -98,11 +90,7 @@ export default function Home() {
 
       <section className="py-24 px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <div data-scroll-animation="scale">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
               Ready to Start Your Project?
             </h2>
@@ -114,7 +102,7 @@ export default function Home() {
                 Get Started
               </Button>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>
