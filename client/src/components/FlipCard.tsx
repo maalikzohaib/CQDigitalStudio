@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, PanInfo } from "framer-motion";
 
 interface CardData {
   image?: {
@@ -63,7 +63,7 @@ export default function FlipCard({
 
   // Handle drag end to determine if card should flip to back
   const handleDragEnd = useCallback(
-    (event: any, info: any, cardIndex: number) => {
+    (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo, cardIndex: number) => {
       const dragDistance = Math.abs(info.offset.x) + Math.abs(info.offset.y);
       const velocity = Math.abs(info.velocity.x) + Math.abs(info.velocity.y);
 
@@ -120,6 +120,7 @@ export default function FlipCard({
       return (
         <motion.div
           key={`card-${index}`}
+          data-testid={`flipcard-card-${index}`}
           custom={transform}
           variants={cardVariants}
           initial="initial"
@@ -234,7 +235,7 @@ export default function FlipCard({
         perspective: "1000px",
       }}
     >
-      <AnimatePresence>{renderedCards}</AnimatePresence>
+      {renderedCards}
       {cards.length === 0 && (
         <div
           style={{
