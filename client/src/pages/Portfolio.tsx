@@ -4,6 +4,7 @@ import PortfolioCard from "@/components/PortfolioCard";
 import FilterTabs from "@/components/FilterTabs";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
+import ZoomImage from "@/components/ZoomImage";
 import weddingImage from "@assets/generated_images/Wedding_portfolio_sample_1f6f9bd5.png";
 import eventImage from "@assets/generated_images/Event_portfolio_sample_f4a5e768.png";
 import portraitImage from "@assets/generated_images/Portrait_portfolio_sample_63794526.png";
@@ -86,10 +87,11 @@ export default function Portfolio() {
               >
                 <X className="w-6 h-6" />
               </button>
-              <img
+              <ZoomImage
                 src={selectedItem.image}
                 alt={selectedItem.title}
                 className="w-full rounded-lg"
+                zoomScale={2}
               />
               <div className="p-8">
                 <p className="text-sm text-primary mb-2">{selectedItem.category}</p>

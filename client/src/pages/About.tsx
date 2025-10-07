@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, Users, Camera } from "lucide-react";
 import teamImage from "@assets/generated_images/Team_photo_30d191f1.png";
+import ZoomImage from "@/components/ZoomImage";
 
 export default function About() {
   const stats = [
@@ -33,10 +34,11 @@ export default function About() {
             viewport={{ once: true }}
             className="mb-24"
           >
-            <img
+            <ZoomImage
               src={teamImage}
               alt="CQ Digital Studio Team"
               className="w-full rounded-lg"
+              zoomScale={1.5}
             />
           </motion.div>
 
