@@ -1,175 +1,187 @@
-# CQ Digital Studio - Design Guidelines
+# CQ Digital Studio - Premium Design Guidelines
 
-## Design Approach: Cinematic Dark Theme
+## Design Approach: Luxurious Cinematic Dark
 
-**Reference Direction**: Drawing inspiration from premium photography studios (Awwwards-featured creative agencies), VSCO's minimalist aesthetic, and cinematic video production sites. The design prioritizes showcasing visual work with minimal distraction.
+**Reference Direction**: Drawing from Awwwards-featured luxury creative agencies (e.g., Active Theory, Resn), high-end fashion photography portfolios, and premium cinema production houses. The design emphasizes opulent restraint—sophisticated darkness punctuated by metallic warmth.
 
-**Core Principle**: Let the photography and videography speak for themselves - elegant restraint with dramatic moments.
+**Core Principle**: Cinematic luxury where visual work commands attention through rich contrasts, metallic accents, and deliberate negative space.
 
 ---
 
 ## Color Palette
 
-**Dark Theme Foundation**:
-- Background Primary: `220 15% 8%` (deep charcoal, not pure black)
-- Background Secondary: `220 12% 12%` (elevated surfaces)
-- Background Tertiary: `220 10% 16%` (cards, modals)
+### Dark Foundation
+- **Background Primary**: `230 20% 6%` (rich charcoal with subtle blue undertone)
+- **Background Secondary**: `230 18% 10%` (elevated surfaces, cards)
+- **Background Tertiary**: `230 15% 14%` (modals, overlays)
+- **True Black Accents**: `0 0% 0%` (deep shadows, dramatic separation)
 
-**Accent Colors**:
-- Primary Accent: `280 60% 65%` (refined purple - creative energy)
-- Secondary Accent: `190 70% 55%` (teal - complementary highlight)
-- Neutral Text: `220 10% 90%` (off-white for readability)
-- Muted Text: `220 8% 60%` (secondary information)
+### Metallic Accent System
+- **Primary (Rose Gold)**: `15 65% 68%` (warm metallic, hero CTAs)
+- **Secondary (Copper)**: `25 75% 58%` (rich complement, hover states)
+- **Tertiary (Deep Purple)**: `270 60% 45%` (regal depth, secondary actions)
+- **Accent Glow**: Use rose gold at 15% opacity for halos and ambient lighting effects
 
-**Interactive States**:
-- Borders/Dividers: `220 12% 20%` (subtle separation)
-- Hover States: Subtle glow using primary accent at 20% opacity
-- Focus Rings: Primary accent with blur
+### Text Hierarchy
+- **Primary Text**: `0 0% 96%` (crisp white for headers)
+- **Body Text**: `230 10% 85%` (off-white, optimal readability)
+- **Muted Text**: `230 12% 55%` (captions, metadata)
+- **Borders/Dividers**: `230 15% 18%` (subtle architectural lines)
 
 ---
 
 ## Typography
 
-**Font System** (Google Fonts):
-- **Display/Headers**: "Clash Display" or "Space Grotesk" - 500-700 weight, modern geometric
-- **Body/UI**: "Inter" - 400-600 weight, exceptional readability
-- **Accents**: "JetBrains Mono" - 400 weight for package details/pricing
+**Font Stack** (Google Fonts CDN):
+- **Display**: "Cormorant Garamond" (serif, 500-600 weight) - editorial elegance for hero headlines
+- **Headers**: "Outfit" (sans-serif, 400-700 weight) - modern luxury for section titles
+- **Body/UI**: "Inter" (400-500 weight) - precision readability
+- **Monospace**: "JetBrains Mono" (400 weight) - package pricing, technical details
 
-**Type Scale**:
-- Hero Display: `text-6xl md:text-7xl lg:text-8xl` (96-128px)
-- Page Headers: `text-4xl md:text-5xl lg:text-6xl` (48-72px)
-- Section Titles: `text-2xl md:text-3xl lg:text-4xl` (32-48px)
-- Body Large: `text-lg md:text-xl` (18-20px)
-- Body Default: `text-base` (16px)
-- Small/Captions: `text-sm` (14px)
+**Scale**:
+- **Hero Display**: `text-7xl md:text-8xl lg:text-9xl` (112-160px) with tight tracking
+- **Page Headers**: `text-5xl md:text-6xl lg:text-7xl` (60-96px)
+- **Section Titles**: `text-3xl md:text-4xl lg:text-5xl` (36-60px)
+- **Body Large**: `text-xl md:text-2xl` (20-24px) for introductions
+- **Body**: `text-base md:text-lg` (16-18px)
+- **Captions**: `text-sm` (14px) with increased letter spacing
 
 ---
 
 ## Layout System
 
-**Spacing Primitives**: Use Tailwind units of **2, 4, 6, 8, 12, 16, 20, 24, 32**
-- Micro spacing: `p-2, gap-4` (element padding, small gaps)
-- Component spacing: `p-6, p-8, gap-8` (card interiors, moderate gaps)
-- Section spacing: `py-16, py-20, py-24` (vertical rhythm)
-- Major sections: `py-32` (hero, major breaks)
+**Spacing Framework**: Tailwind units **2, 4, 8, 12, 16, 20, 32**
+- **Micro**: `p-2, gap-4` (tight groupings)
+- **Component**: `p-8, p-12, gap-8` (card interiors)
+- **Section**: `py-20, py-32` (major content blocks)
+- **Dramatic Breaks**: `py-32 md:py-40` (hero, portfolio transitions)
 
-**Grid System**:
-- Container: `max-w-7xl mx-auto px-6 lg:px-8`
-- Portfolio grids: `grid-cols-1 md:grid-cols-2 lg:grid-cols-3` with `gap-6 lg:gap-8`
-- Services/Features: `grid-cols-1 md:grid-cols-2 lg:grid-cols-3` with `gap-8`
-- Asymmetric layouts for visual interest on About/Services pages
+**Grid Architecture**:
+- **Container**: `max-w-7xl mx-auto px-6 lg:px-12`
+- **Portfolio**: Asymmetric masonry—`grid-cols-1 md:grid-cols-12` with varied column spans (3-7 cols)
+- **Services**: `grid-cols-1 lg:grid-cols-3 gap-8`
+- **Testimonials**: `grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12`
 
 ---
 
 ## Component Library
 
-**Navigation**:
-- Sticky navbar with blur backdrop (`backdrop-blur-xl bg-background/80`)
-- Logo left, navigation center, CTA right on desktop
-- Mobile: Hamburger with full-screen overlay menu
-- Smooth scroll-triggered appearance/disappearance
+### Navigation
+- **Floating navbar** with heavy backdrop blur (`backdrop-blur-2xl bg-background-primary/60`)
+- Logo left (rose gold accent), centered navigation, "Book Now" CTA (rose gold gradient) right
+- Active state: Rose gold underline with subtle glow
+- Mobile: Full-screen overlay menu with staggered fade-in animations
 
-**Hero Section** (Home):
-- Full-viewport video background with dark overlay (40% opacity)
-- Centered content with animated display typography
-- Primary CTA: Solid purple button with glow effect
-- Secondary CTA: Outline button with blurred background (`backdrop-blur-md`)
-- Scroll indicator with animated chevron
+### Hero Section (Large Image)
+- **Full-viewport image** (1920x1080 min): Dramatic studio shot or cinematic portfolio piece
+- Dark gradient overlay (60% opacity from bottom)
+- Content: Serif display headline, refined subheading, dual CTAs
+- Primary CTA: Solid rose gold button with copper hover
+- Secondary CTA: Outline button with blurred background—no hover interactions (Button handles states)
 
-**Cards** (Services, Packages, Testimonials):
-- Dark background (`bg-background-secondary`) with subtle border
-- Hover: Lift effect (`hover:scale-105 transition-transform`)
-- Service cards: Lucide icon (48px), title, description, "Learn More" link
-- Package cards: Tier name, price (large mono font), feature list with checkmarks, prominent CTA
-- Testimonial cards: Star rating, quote, client name/role, optional photo
+### Portfolio Grid
+- **Masonry layout** with 3-7 varied aspect ratios (16:9, 4:5, 1:1, 9:16)
+- Filter system: Pill-style toggles with rose gold active state
+- Image cards: Gradient overlay on hover (deep purple to transparent) revealing metadata
+- Lightbox: Full-screen dark modal (`bg-black/95`) with navigation arrows, image counter
 
-**Portfolio Grid**:
-- Masonry-inspired layout with varied aspect ratios
-- Filter tabs: All / Photography / Videography / Events (pill-style toggles)
-- Image cards with gradient overlay on hover revealing title
-- Lightbox modal: Dark backdrop, large preview, navigation arrows, close button
+### Service Cards
+- **Large format cards** (min-height 400px) with background images at 30% opacity
+- Icon (Lucide, 64px) in rose gold with glow effect
+- Service title (Outfit, bold), description (Inter)
+- "Explore Service" link with animated arrow
 
-**Forms** (Contact):
-- Dark input fields with subtle borders (`border-gray-700`)
-- Focus state: Purple ring with glow
-- Labels above inputs, helper text below
-- Submit button: Full-width purple gradient with loading state
+### Package Pricing
+- **Three-tier cards** with varied visual weight (middle tier elevated with rose gold border)
+- Tier badge (ribbon style, copper gradient)
+- Price: Large monospace font with currency symbol in rose gold
+- Feature list with custom checkmark icons (rose gold)
+- Prominent gradient CTA button
 
-**Footer**:
-- Three-column layout: Brand/tagline | Quick links | Contact info
-- Social icons row (Instagram, Facebook, YouTube, Vimeo)
-- Copyright and policies at bottom
-- Background: Slightly darker than page (`bg-background-primary`)
+### Testimonial Cards
+- Quote in large serif italic font
+- Five-star rating (rose gold stars)
+- Client name/role with optional circular photo (grayscale with rose gold border)
+- Subtle card lift on hover with shadow glow
+
+### Contact Form
+- Dark input fields (`bg-background-tertiary border-border`)
+- Focus: Rose gold ring with outer glow
+- Labels above (small caps, letter-spaced)
+- Submit: Full-width gradient button (rose gold to copper)
+
+### Footer
+- **Four-column layout**: Brand story | Services | Portfolio | Contact
+- Social icons (Instagram, Vimeo, YouTube) with rose gold hover
+- Newsletter signup with inline form
+- Copyright with subtle divider above
+- Background: `bg-background-primary` with top border gradient
 
 ---
 
-## Animations & Interactions
+## Animations
 
 **Page Transitions** (Framer Motion):
-- Fade in with slight upward motion (`initial={{ opacity: 0, y: 20 }}`)
-- Stagger children for grid layouts
-- 0.5s duration with ease-out curve
+- Fade-in with scale (`initial={{ opacity: 0, scale: 0.95 }}`)
+- Stagger grid items (0.1s delay between)
+- Duration: 0.6s with custom ease
 
-**Scroll Animations** (GSAP):
-- Hero parallax: Video/background moves slower than content (0.5x speed)
-- Fade-in-up on scroll for section headers and cards
-- Trigger: When element reaches 80% viewport height
-- Portfolio images: Subtle scale on scroll into view
+**Scroll Behaviors** (GSAP):
+- Parallax hero image (0.4x scroll speed)
+- Section headers: Fade-up when 75% in viewport
+- Portfolio images: Subtle zoom (1.0 to 1.05) on scroll reveal
+- Navbar: Transform to solid after 120px scroll, hide on down-scroll, reveal on up-scroll
 
 **Hover States**:
-- Buttons: Scale 105% with smooth transition
-- Cards: Lift with shadow increase
-- Images: Slight brightness increase (110%)
-- Links: Underline slide-in animation
-
-**Navbar Behavior**:
-- Transparent initially, solid background after 100px scroll
-- Hide on scroll down, show on scroll up
-- Active page indicator with accent color bottom border
+- Buttons: Scale 102% with rose gold glow expansion
+- Cards: Lift (translateY -8px) with shadow increase
+- Images: Brightness 110% with overlay fade
+- Text links: Rose gold underline slide-in (left to right)
 
 ---
 
 ## Images
 
-**Hero Video Background**:
-- Cinematic b-roll footage of photography/videography work (4K, muted, loop)
-- Dark overlay to ensure text legibility
-- Mobile: Replace with high-quality static image for performance
+### Hero Image (Home)
+**Description**: Cinematic wide shot of the studio at golden hour—soft ambient lighting, high-end camera equipment in foreground, elegant minimalist space. Shot with shallow depth of field, warm color grade.
+**Placement**: Full viewport (100vh), dark gradient overlay from bottom (0% to 60% opacity)
 
-**Portfolio Content**:
-- High-resolution photography samples (weddings, events, portraits, products)
-- Video thumbnails with play icons linking to Vimeo/YouTube
-- Mix of horizontal and vertical orientations for visual rhythm
+### Portfolio Showcase
+**Description**: 20-30 high-resolution samples—wedding ceremonies with dramatic lighting, corporate headshots with refined backgrounds, product photography with metallic accents, event coverage with candid moments, aerial drone footage thumbnails
+**Placement**: Masonry grid after hero section, varied aspect ratios
 
-**About Page**:
-- Team photo in candid studio setting (authentic, not overly posed)
-- Behind-the-scenes images of shoots
-- Equipment/studio space hero image
+### Services Page
+**Description**: Behind-the-scenes images—photographer directing a shoot, videographer with cinema camera on gimbal, studio lighting setup, editing suite with color-graded footage on monitors
+**Placement**: Full-width hero (70vh), service card backgrounds (blurred, 30% opacity)
 
-**Service Icons**:
-- Use Lucide React icons (Camera, Video, Users, Package, etc.)
-- 48px size in accent purple color with subtle glow
+### About Page  
+**Description**: Team portrait in studio environment (authentic, not overly staged), candid shots of creative process, equipment showcase with shallow DOF, workspace with mood lighting
+**Placement**: Split layout hero (50/50 image-text), scattered throughout content
 
----
-
-## Page-Specific Layouts
-
-**Home**: Video hero → Featured services (3-column cards) → Portfolio preview (6-image grid) → CTA banner → Testimonials carousel
-
-**Portfolio**: Filter tabs → Masonry grid (20-30 items) → Load more button
-
-**Packages**: Hero with tagline → 3 pricing cards (equal height, centered) → Comparison table → FAQ accordion
-
-**Contact**: Split layout - Form (60%) | Map + Info (40%) on desktop, stacked mobile
-
-**Services**: Hero image → Service categories (large cards with icons) → Process timeline → Related packages
+### Package Cards
+**Description**: Abstract backgrounds—bokeh light patterns, film grain textures, subtle rose gold gradient overlays
+**Placement**: Card backgrounds at low opacity, decorative accents
 
 ---
 
-## Responsive Breakpoints
+## Page Structures
 
-- Mobile: < 768px (single column, stacked navigation)
-- Tablet: 768px - 1024px (2-column grids)
-- Desktop: > 1024px (3-column grids, full navigation)
+**Home**: Hero image → Featured services (3 large cards) → Portfolio preview (12-item masonry) → Testimonial grid (6 cards) → CTA banner with background image → Footer
 
-All spacing reduces by 33% on mobile (e.g., `py-24 → py-16 → py-12`)
+**Portfolio**: Filter tabs → Masonry grid (20-30 items) with infinite scroll → Featured project spotlight section
+
+**Packages**: Hero with pricing philosophy → 3 tiered cards (equal height, centered) → Feature comparison table → Add-ons grid → FAQ accordion
+
+**Services**: Hero image → Service categories (large image cards, 3-column) → Process timeline (vertical on mobile, horizontal on desktop) → Related packages carousel
+
+**Contact**: Split layout—Form (55%) | Map + studio info + hours (45%) on desktop, stacked on mobile
+
+---
+
+## Responsive Strategy
+
+- **Mobile** (<768px): Single column, reduced spacing by 40%, stacked navigation
+- **Tablet** (768-1024px): 2-column grids, hybrid navigation
+- **Desktop** (>1024px): Full multi-column layouts, floating navigation
+
+Critical: All metallic accents maintain vibrancy across viewports—no color desaturation on mobile.
