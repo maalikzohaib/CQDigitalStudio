@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion, stagger, useAnimate } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
 import { Link } from "wouter";
 import Floating, { FloatingElement } from "@/components/ui/parallax-floating";
 
@@ -179,20 +178,6 @@ export default function Hero() {
           />
         </FloatingElement>
       </Floating>
-
-      <motion.div 
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-50"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ 
-          duration: 1,
-          delay: 2.5,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-      >
-        <ChevronDown className="w-8 h-8 text-primary" data-testid="icon-scroll" />
-      </motion.div>
     </div>
   );
 }
