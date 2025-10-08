@@ -1,127 +1,179 @@
+import * as React from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Facebook, Instagram, Youtube, Send, Twitter } from "lucide-react";
 import { Link } from "wouter";
-import { Camera, Instagram, Facebook, Youtube } from "lucide-react";
-import { SiVimeo } from "react-icons/si";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const quickLinks = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
-    { path: "/services", label: "Services" },
-    { path: "/portfolio", label: "Portfolio" },
-  ];
-
-  const serviceLinks = [
-    { path: "/packages", label: "Packages" },
-    { path: "/testimonials", label: "Testimonials" },
-    { path: "/contact", label: "Contact" },
-  ];
-
+  
   return (
-    <footer className="bg-card border-t border-card-border mt-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <Camera className="w-8 h-8 text-primary" />
-              <span className="text-xl font-display font-bold">CQ Digital Studio</span>
-            </div>
-            <p className="text-muted-foreground text-sm">
-              Creating timeless memories through cinematic photography and videography.
+    <footer className="relative border-t bg-background text-foreground transition-colors duration-300 mt-24">
+      <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="relative">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight">Stay Connected</h2>
+            <p className="mb-6 text-muted-foreground">
+              Join our newsletter for the latest updates and exclusive offers.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-md hover-elevate active-elevate-2"
-                data-testid="link-instagram"
+            <form className="relative" onSubmit={(e) => e.preventDefault()}>
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="pr-12 backdrop-blur-sm"
+                data-testid="input-newsletter-email"
+              />
+              <Button
+                type="submit"
+                size="icon"
+                className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
+                data-testid="button-newsletter-submit"
               >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-md hover-elevate active-elevate-2"
-                data-testid="link-facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-md hover-elevate active-elevate-2"
-                data-testid="link-youtube"
-              >
-                <Youtube className="w-5 h-5" />
-              </a>
-              <a
-                href="https://vimeo.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-md hover-elevate active-elevate-2"
-                data-testid="link-vimeo"
-              >
-                <SiVimeo className="w-5 h-5" />
-              </a>
+                <Send className="h-4 w-4" />
+                <span className="sr-only">Subscribe</span>
+              </Button>
+            </form>
+            <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
+          </div>
+          <div>
+            <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
+            <nav className="space-y-2 text-sm">
+              <Link href="/" className="block transition-colors hover:text-primary">
+                Home
+              </Link>
+              <Link href="/about" className="block transition-colors hover:text-primary">
+                About Us
+              </Link>
+              <Link href="/services" className="block transition-colors hover:text-primary">
+                Services
+              </Link>
+              <Link href="/portfolio" className="block transition-colors hover:text-primary">
+                Portfolio
+              </Link>
+              <Link href="/packages" className="block transition-colors hover:text-primary">
+                Packages
+              </Link>
+              <Link href="/contact" className="block transition-colors hover:text-primary">
+                Contact
+              </Link>
+            </nav>
+          </div>
+          <div>
+            <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
+            <address className="space-y-2 text-sm not-italic">
+              <p>CQ Digital Studio</p>
+              <p>123 Creative Ave</p>
+              <p>Studio City, CA 90210</p>
+              <p>Phone: (555) 123-4567</p>
+              <p>Email: contact@cqdigital.studio</p>
+            </address>
+          </div>
+          <div className="relative">
+            <h3 className="mb-4 text-lg font-semibold">Follow Us</h3>
+            <div className="mb-6 flex space-x-4">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      className="rounded-full"
+                      onClick={() => window.open('https://facebook.com', '_blank')}
+                      data-testid="button-social-facebook"
+                    >
+                      <Facebook className="h-4 w-4" />
+                      <span className="sr-only">Facebook</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Follow us on Facebook</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      className="rounded-full"
+                      onClick={() => window.open('https://twitter.com', '_blank')}
+                      data-testid="button-social-twitter"
+                    >
+                      <Twitter className="h-4 w-4" />
+                      <span className="sr-only">Twitter</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Follow us on Twitter</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      className="rounded-full"
+                      onClick={() => window.open('https://instagram.com', '_blank')}
+                      data-testid="button-social-instagram"
+                    >
+                      <Instagram className="h-4 w-4" />
+                      <span className="sr-only">Instagram</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Follow us on Instagram</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      className="rounded-full"
+                      onClick={() => window.open('https://youtube.com', '_blank')}
+                      data-testid="button-social-youtube"
+                    >
+                      <Youtube className="h-4 w-4" />
+                      <span className="sr-only">YouTube</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Watch our videos on YouTube</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.path}>
-                  <Link href={link.path}>
-                    <span className="text-muted-foreground hover:text-primary transition-colors text-sm cursor-pointer" data-testid={`footer-link-${link.label.toLowerCase()}`}>
-                      {link.label}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-4">Services</h3>
-            <ul className="space-y-3">
-              {serviceLinks.map((link) => (
-                <li key={link.path}>
-                  <Link href={link.path}>
-                    <span className="text-muted-foreground hover:text-primary transition-colors text-sm cursor-pointer" data-testid={`footer-link-${link.label.toLowerCase()}`}>
-                      {link.label}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-4">Contact</h3>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li data-testid="text-email">contact@cqdigital.studio</li>
-              <li data-testid="text-phone">+1 (555) 123-4567</li>
-              <li data-testid="text-address">123 Creative Ave, Studio City, CA 90210</li>
-            </ul>
+            <p className="text-sm text-muted-foreground">
+              Follow us for behind-the-scenes content and photography tips
+            </p>
           </div>
         </div>
-
-        <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground" data-testid="text-copyright">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
+          <p className="text-sm text-muted-foreground">
             © {currentYear} CQ Digital Studio. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="link-privacy">
+          <nav className="flex gap-4 text-sm">
+            <a href="#" className="transition-colors hover:text-primary">
               Privacy Policy
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="link-terms">
+            <a href="#" className="transition-colors hover:text-primary">
               Terms of Service
             </a>
-          </div>
+            <a href="#" className="transition-colors hover:text-primary">
+              Cookie Settings
+            </a>
+          </nav>
         </div>
       </div>
     </footer>
