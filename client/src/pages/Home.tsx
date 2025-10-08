@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import Hero from "@/components/Hero";
-import ServiceCard from "@/components/ServiceCard";
 import PortfolioCard from "@/components/PortfolioCard";
-import { Camera, Video, Users, Package } from "lucide-react";
+import CircularGallery from "@/components/CircularGallery";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -13,21 +12,35 @@ import productImage from "@assets/generated_images/Product_portfolio_sample_6fc4
 
 export default function Home() {
   useScrollAnimation();
-  const services = [
-    {
-      icon: Camera,
-      title: "Wedding Photography",
-      description: "Capture your special day with stunning imagery that tells your unique love story.",
+  
+  const galleryItems = [
+    { image: weddingImage, text: "Wedding Photography" },
+    { image: eventImage, text: "Corporate Events" },
+    { image: portraitImage, text: "Portrait Sessions" },
+    { image: productImage, text: "Product Photography" },
+    { 
+      image: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop", 
+      text: "Fashion Portraits" 
     },
-    {
-      icon: Video,
-      title: "Cinematic Videography",
-      description: "Create lasting memories with professionally crafted cinematic videos.",
+    { 
+      image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop", 
+      text: "Event Coverage" 
     },
-    {
-      icon: Users,
-      title: "Event Coverage",
-      description: "Professional photography and videography for corporate and social events.",
+    { 
+      image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=600&fit=crop", 
+      text: "Bridal Moments" 
+    },
+    { 
+      image: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&h=600&fit=crop", 
+      text: "Corporate Headshots" 
+    },
+    { 
+      image: "https://images.unsplash.com/photo-1560707303-4e980ce876ad?w=800&h=600&fit=crop", 
+      text: "Conference Photography" 
+    },
+    { 
+      image: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&h=600&fit=crop", 
+      text: "Lifestyle Photography" 
     },
   ];
 
@@ -42,23 +55,31 @@ export default function Home() {
     <div>
       <Hero />
 
-      <section className="py-24 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16" data-scroll-animation="fade-up">
+      <section className="relative">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="py-24"
+        >
+          <div className="text-center mb-16 px-6">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              Our Services
+              Our <span className="text-primary">Gallery</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From intimate moments to grand celebrations, we bring your vision to life
+              Explore our stunning collection of photography and videography work
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <ServiceCard key={service.title} {...service} index={index} />
-            ))}
-          </div>
-        </div>
+          <CircularGallery 
+            items={galleryItems}
+            bend={2.5}
+            textColor="#ffffff"
+            borderRadius={0.02}
+            font="bold 24px Figtree"
+            scrollSpeed={2.5}
+            scrollEase={0.08}
+          />
+        </motion.div>
       </section>
 
       <section className="py-24 px-6 lg:px-8 bg-card">
