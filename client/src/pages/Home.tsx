@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import PortfolioCard from "@/components/PortfolioCard";
-import { Camera, Video, Users } from "lucide-react";
+import { Camera, Video, Users, Package } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -13,7 +13,6 @@ import productImage from "@assets/generated_images/Product_portfolio_sample_6fc4
 
 export default function Home() {
   useScrollAnimation();
-
   const services = [
     {
       icon: Camera,
