@@ -14,112 +14,88 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
 
-  --background: 220 6% 97%;
-
-  --foreground: 220 10% 12%;
-
-  --border: 220 8% 88%;
-
-  --card: 220 6% 95%;
-
-  --card-foreground: 220 10% 12%;
-
-  --card-border: 220 8% 86%;
-
-  --sidebar: 220 6% 93%;
-
-  --sidebar-foreground: 220 10% 12%;
-
-  --sidebar-border: 220 8% 84%;
-
-  --sidebar-primary: 280 60% 45%;
-
-  --sidebar-primary-foreground: 280 10% 98%;
-
-  --sidebar-accent: 220 6% 88%;
-
-  --sidebar-accent-foreground: 220 10% 20%;
-
-  --sidebar-ring: 280 60% 55%;
-
-  --popover: 220 6% 92%;
-
-  --popover-foreground: 220 10% 12%;
-
-  --popover-border: 220 8% 82%;
-
-  --primary: 280 60% 45%;
-
-  --primary-foreground: 280 10% 98%;
-
-  --secondary: 220 6% 90%;
-
-  --secondary-foreground: 220 10% 18%;
-
-  --muted: 220 8% 89%;
-
-  --muted-foreground: 220 10% 35%;
-
-  --accent: 220 12% 87%;
-
-  --accent-foreground: 220 10% 18%;
-
-  --destructive: 0 72% 42%;
-
-  --destructive-foreground: 0 10% 98%;
-
-  --input: 220 12% 70%;
-  --ring: 280 60% 55%;
-  --chart-1: 280 60% 35%;
-  --chart-2: 190 70% 35%;
-  --chart-3: 220 65% 35%;
-  --chart-4: 160 60% 32%;
-  --chart-5: 240 55% 38%;
+  /* Modern minimal theme using OKLCH colors */
+  --background: 100% 0 0;
+  --foreground: 32.11% 0 0;
+  --card: 100% 0 0;
+  --card-foreground: 32.11% 0 0;
+  --popover: 100% 0 0;
+  --popover-foreground: 32.11% 0 0;
+  --primary: 62.31% 0.188 259.8145;
+  --primary-foreground: 100% 0 0;
+  --secondary: 96.7% 0.0029 264.5419;
+  --secondary-foreground: 44.61% 0.0263 256.8018;
+  --muted: 98.46% 0.0017 247.8389;
+  --muted-foreground: 55.1% 0.0234 264.3637;
+  --accent: 95.14% 0.025 236.8242;
+  --accent-foreground: 37.91% 0.1378 265.5222;
+  --destructive: 63.68% 0.2078 25.3313;
+  --destructive-foreground: 100% 0 0;
+  --border: 92.76% 0.0058 264.5313;
+  --input: 92.76% 0.0058 264.5313;
+  --ring: 62.31% 0.188 259.8145;
+  --chart-1: 62.31% 0.188 259.8145;
+  --chart-2: 54.61% 0.2152 262.8809;
+  --chart-3: 48.82% 0.2172 264.3763;
+  --chart-4: 42.44% 0.1809 265.6377;
+  --chart-5: 37.91% 0.1378 265.5222;
+  --sidebar: 98.46% 0.0017 247.8389;
+  --sidebar-foreground: 32.11% 0 0;
+  --sidebar-primary: 62.31% 0.188 259.8145;
+  --sidebar-primary-foreground: 100% 0 0;
+  --sidebar-accent: 95.14% 0.025 236.8242;
+  --sidebar-accent-foreground: 37.91% 0.1378 265.5222;
+  --sidebar-border: 92.76% 0.0058 264.5313;
+  --sidebar-ring: 62.31% 0.188 259.8145;
+  
+  /* Card border using the border color */
+  --card-border: 92.76% 0.0058 264.5313;
+  --popover-border: 92.76% 0.0058 264.5313;
 
   --font-sans: Inter, sans-serif;
-  --font-serif: Georgia, serif;
+  --font-serif: Source Serif 4, serif;
   --font-mono: JetBrains Mono, monospace;
-  --radius: .5rem;
-  --shadow-2xs: 0px 1px 2px 0px hsl(220 15% 8% / 0.05);
-  --shadow-xs: 0px 2px 4px 0px hsl(220 15% 8% / 0.08);
-  --shadow-sm: 0px 3px 6px 0px hsl(220 15% 8% / 0.10), 0px 1px 2px -1px hsl(220 15% 8% / 0.08);
-  --shadow: 0px 4px 8px 0px hsl(220 15% 8% / 0.12), 0px 2px 4px -1px hsl(220 15% 8% / 0.10);
-  --shadow-md: 0px 6px 12px 0px hsl(220 15% 8% / 0.15), 0px 3px 6px -2px hsl(220 15% 8% / 0.12);
-  --shadow-lg: 0px 10px 20px 0px hsl(220 15% 8% / 0.18), 0px 4px 8px -2px hsl(220 15% 8% / 0.14);
-  --shadow-xl: 0px 16px 32px 0px hsl(220 15% 8% / 0.22), 0px 6px 12px -3px hsl(220 15% 8% / 0.16);
-  --shadow-2xl: 0px 24px 48px 0px hsl(220 15% 8% / 0.28);
+  --radius: 0.375rem;
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
+  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
+  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
+  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
   /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
 
   /* Fallback for older browsers */
-  --sidebar-primary-border: hsl(var(--sidebar-primary));
-  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-primary-border: oklch(var(--sidebar-primary));
+  --sidebar-primary-border: oklch(from oklch(var(--sidebar-primary)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
 
   /* Fallback for older browsers */
-  --sidebar-accent-border: hsl(var(--sidebar-accent));
-  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: oklch(var(--sidebar-accent));
+  --sidebar-accent-border: oklch(from oklch(var(--sidebar-accent)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
 
   /* Fallback for older browsers */
-  --primary-border: hsl(var(--primary));
-  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: oklch(var(--primary));
+  --primary-border: oklch(from oklch(var(--primary)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
 
   /* Fallback for older browsers */
-  --secondary-border: hsl(var(--secondary));
-  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: oklch(var(--secondary));
+  --secondary-border: oklch(from oklch(var(--secondary)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
 
   /* Fallback for older browsers */
-  --muted-border: hsl(var(--muted));
-  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: oklch(var(--muted));
+  --muted-border: oklch(from oklch(var(--muted)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
 
   /* Fallback for older browsers */
-  --accent-border: hsl(var(--accent));
-  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: oklch(var(--accent));
+  --accent-border: oklch(from oklch(var(--accent)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
 
   /* Fallback for older browsers */
-  --destructive-border: hsl(var(--destructive));
-  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: oklch(var(--destructive));
+  --destructive-border: oklch(from oklch(var(--destructive)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
 }
 
 .dark {
@@ -132,85 +108,61 @@
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
 
-  --background: 220 15% 8%;
+  /* Modern minimal dark theme using OKLCH colors */
+  --background: 20.46% 0 0;
+  --foreground: 92.19% 0 0;
+  --card: 26.86% 0 0;
+  --card-foreground: 92.19% 0 0;
+  --popover: 26.86% 0 0;
+  --popover-foreground: 92.19% 0 0;
+  --primary: 62.31% 0.188 259.8145;
+  --primary-foreground: 100% 0 0;
+  --secondary: 26.86% 0 0;
+  --secondary-foreground: 92.19% 0 0;
+  --muted: 23.93% 0 0;
+  --muted-foreground: 71.55% 0 0;
+  --accent: 37.91% 0.1378 265.5222;
+  --accent-foreground: 88.23% 0.0571 254.1284;
+  --destructive: 63.68% 0.2078 25.3313;
+  --destructive-foreground: 100% 0 0;
+  --border: 37.15% 0 0;
+  --input: 37.15% 0 0;
+  --ring: 62.31% 0.188 259.8145;
+  --chart-1: 71.37% 0.1434 254.624;
+  --chart-2: 62.31% 0.188 259.8145;
+  --chart-3: 54.61% 0.2152 262.8809;
+  --chart-4: 48.82% 0.2172 264.3763;
+  --chart-5: 42.44% 0.1809 265.6377;
+  --sidebar: 20.46% 0 0;
+  --sidebar-foreground: 92.19% 0 0;
+  --sidebar-primary: 62.31% 0.188 259.8145;
+  --sidebar-primary-foreground: 100% 0 0;
+  --sidebar-accent: 37.91% 0.1378 265.5222;
+  --sidebar-accent-foreground: 88.23% 0.0571 254.1284;
+  --sidebar-border: 37.15% 0 0;
+  --sidebar-ring: 62.31% 0.188 259.8145;
+  
+  /* Card and popover borders using the border color */
+  --card-border: 37.15% 0 0;
+  --popover-border: 37.15% 0 0;
 
-  --foreground: 220 10% 90%;
-
-  --border: 220 12% 20%;
-
-  --card: 220 12% 12%;
-
-  --card-foreground: 220 10% 90%;
-
-  --card-border: 220 12% 22%;
-
-  --sidebar: 220 10% 16%;
-
-  --sidebar-foreground: 220 10% 90%;
-
-  --sidebar-border: 220 12% 24%;
-
-  --sidebar-primary: 280 60% 65%;
-
-  --sidebar-primary-foreground: 280 10% 98%;
-
-  --sidebar-accent: 220 8% 20%;
-
-  --sidebar-accent-foreground: 220 8% 90%;
-
-  --sidebar-ring: 280 60% 65%;
-
-  --popover: 220 10% 18%;
-
-  --popover-foreground: 220 10% 90%;
-
-  --popover-border: 220 12% 26%;
-
-  --primary: 280 60% 65%;
-
-  --primary-foreground: 280 10% 98%;
-
-  --secondary: 220 8% 22%;
-
-  --secondary-foreground: 220 8% 92%;
-
-  --muted: 220 10% 20%;
-
-  --muted-foreground: 220 8% 60%;
-
-  --accent: 220 12% 24%;
-
-  --accent-foreground: 220 8% 92%;
-
-  --destructive: 0 72% 45%;
-
-  --destructive-foreground: 0 10% 98%;
-
-  --input: 220 12% 28%;
-  --ring: 280 60% 65%;
-  --chart-1: 280 60% 70%;
-  --chart-2: 190 70% 65%;
-  --chart-3: 220 65% 68%;
-  --chart-4: 160 60% 65%;
-  --chart-5: 240 55% 70%;
-
-  --shadow-2xs: 0px 1px 2px 0px hsl(220 15% 8% / 0.40);
-  --shadow-xs: 0px 2px 4px 0px hsl(220 15% 8% / 0.50);
-  --shadow-sm: 0px 3px 6px 0px hsl(220 15% 8% / 0.60), 0px 1px 2px -1px hsl(220 15% 8% / 0.50);
-  --shadow: 0px 4px 8px 0px hsl(220 15% 8% / 0.70), 0px 2px 4px -1px hsl(220 15% 8% / 0.60);
-  --shadow-md: 0px 6px 12px 0px hsl(220 15% 8% / 0.80), 0px 3px 6px -2px hsl(220 15% 8% / 0.70);
-  --shadow-lg: 0px 10px 20px 0px hsl(220 15% 8% / 0.90), 0px 4px 8px -2px hsl(220 15% 8% / 0.80);
-  --shadow-xl: 0px 16px 32px 0px hsl(220 15% 8% / 1.00), 0px 6px 12px -3px hsl(220 15% 8% / 0.90);
-  --shadow-2xl: 0px 24px 48px 0px hsl(220 15% 8% / 1.00);
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
+  --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
+  --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
+  --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
+  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
 
   /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
-  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-primary-border: oklch(from oklch(var(--sidebar-primary)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
+  --sidebar-accent-border: oklch(from oklch(var(--sidebar-accent)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
+  --primary-border: oklch(from oklch(var(--primary)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
+  --secondary-border: oklch(from oklch(var(--secondary)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
+  --muted-border: oklch(from oklch(var(--muted)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
+  --accent-border: oklch(from oklch(var(--accent)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
+  --destructive-border: oklch(from oklch(var(--destructive)) calc(l + var(--opaque-button-border-intensity) / 100) c h / alpha);
 }
 
 @layer base {
