@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { Link } from "wouter";
 import Floating, { FloatingElement } from "@/components/ui/parallax-floating";
-import { CursorProvider, CursorFollow } from "@/components/ui/animated-cursor";
 
 export default function Hero() {
   const [scope, animate] = useAnimate();
@@ -50,27 +49,16 @@ export default function Hero() {
   }, []);
 
   return (
-    <CursorProvider>
-      <div
-        className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden"
-        ref={scope}
+    <div
+      className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden"
+      ref={scope}
+    >
+      <motion.div
+        className="z-50 text-center space-y-8 items-center flex flex-col px-6"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.88, delay: 1.5 }}
       >
-        <CursorFollow 
-          className="absolute inset-0 z-10"
-          content={
-            <div className="bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-sm shadow-xl font-medium">
-              Explore
-            </div>
-          }
-        >
-          {/* Empty div to capture hover events across the hero */}
-        </CursorFollow>
-        <motion.div
-          className="z-50 text-center space-y-8 items-center flex flex-col px-6"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.88, delay: 1.5 }}
-        >
         <div>
           <motion.h1 
             className="text-6xl md:text-8xl lg:text-9xl font-bold mb-2"
@@ -206,6 +194,5 @@ export default function Hero() {
         <ChevronDown className="w-8 h-8 text-primary" data-testid="icon-scroll" />
       </motion.div>
     </div>
-    </CursorProvider>
   );
 }
