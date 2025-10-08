@@ -170,24 +170,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto text-center">
-          <div data-scroll-animation="scale">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Let's create something extraordinary together. Contact us today for a free consultation.
-            </p>
-            <Link href="/contact">
-              <Button size="lg" className="min-h-12 px-8" data-testid="button-get-started">
-                Get Started
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <section className="py-24 bg-card">
         <Pricing 
           plans={pricingPlans}
