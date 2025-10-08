@@ -1,5 +1,5 @@
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import './CircularGallery.css';
 
@@ -366,14 +366,22 @@ class App {
     this.addEventListeners();
   }
   createRenderer() {
-    this.renderer = new Renderer({
-      alpha: true,
-      antialias: true,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
-    });
-    this.gl = this.renderer.gl;
-    this.gl.clearColor(0, 0, 0, 0);
-    this.container.appendChild(this.gl.canvas);
+    try {
+      this.renderer = new Renderer({
+        alpha: true,
+        antialias: true,
+        dpr: Math.min(window.devicePixelRatio || 1, 2)
+      });
+      this.gl = this.renderer.gl;
+      if (!this.gl) {
+        throw new Error('WebGL context creation failed');
+      }
+      this.gl.clearColor(0, 0, 0, 0);
+      this.container.appendChild(this.gl.canvas);
+    } catch (error) {
+      console.error('Failed to create WebGL renderer:', error);
+      throw new Error('WebGL not supported');
+    }
   }
   createCamera() {
     this.camera = new Camera(this.gl);
@@ -522,6 +530,17 @@ interface CircularGalleryProps {
   scrollEase?: number;
 }
 
+// Check if WebGL is supported
+function checkWebGLSupport(): boolean {
+  try {
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    return !!gl;
+  } catch (e) {
+    return false;
+  }
+}
+
 export default function CircularGallery({
   items,
   bend = 3,
@@ -532,12 +551,48 @@ export default function CircularGallery({
   scrollEase = 0.05
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [webGLSupported, setWebGLSupported] = useState(() => checkWebGLSupport());
+  
   useEffect(() => {
-    if (!containerRef.current) return;
-    const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase });
-    return () => {
-      app.destroy();
-    };
-  }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
+    if (!containerRef.current || !webGLSupported) return;
+    
+    let app: App | null = null;
+    try {
+      app = new App(containerRef.current, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase });
+      return () => {
+        if (app) {
+          app.destroy();
+        }
+      };
+    } catch (error) {
+      console.warn('WebGL initialization failed:', error);
+      setWebGLSupported(false);
+    }
+  }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase, webGLSupported]);
+  
+  // Fallback UI when WebGL is not supported
+  if (!webGLSupported) {
+    return (
+      <div className="w-full py-12">
+        <div className="flex gap-6 overflow-x-auto px-6 pb-6" style={{ scrollbarWidth: 'thin' }}>
+          {(items || []).slice(0, 10).map((item, index) => (
+            <div key={index} className="flex-shrink-0">
+              <div className="relative w-64 h-48 rounded-lg overflow-hidden">
+                <img 
+                  src={item.image} 
+                  alt={item.text}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p className="text-white font-bold">{item.text}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  
   return <div className="circular-gallery" ref={containerRef} />;
 }
