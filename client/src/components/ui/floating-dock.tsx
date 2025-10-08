@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
+import { CursorProvider, CursorFollow } from "@/components/ui/animated-cursor";
 
 export const FloatingDock = ({
   items,
@@ -53,18 +54,20 @@ const FloatingDockDesktop = ({
 }) => {
   let mouseX = useMotionValue(Infinity);
   return (
-    <motion.div
-      onMouseMove={(e) => mouseX.set(e.pageX)}
-      onMouseLeave={() => mouseX.set(Infinity)}
-      className={cn(
-        "mx-auto hidden md:flex h-16 gap-4 items-end rounded-2xl bg-card border border-card-border px-4 pb-3",
-        className
-      )}
-    >
-      {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} />
-      ))}
-    </motion.div>
+    <CursorProvider>
+      <motion.div
+        onMouseMove={(e) => mouseX.set(e.pageX)}
+        onMouseLeave={() => mouseX.set(Infinity)}
+        className={cn(
+          "mx-auto hidden md:flex h-16 gap-4 items-end rounded-2xl bg-card border border-card-border px-4 pb-3",
+          className
+        )}
+      >
+        {items.map((item) => (
+          <IconContainer mouseX={mouseX} key={item.title} {...item} />
+        ))}
+      </motion.div>
+    </CursorProvider>
   );
 };
 
@@ -121,31 +124,30 @@ function IconContainer({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a href={href} data-testid={`link-${title.toLowerCase()}`}>
-      <motion.div
-        ref={ref}
-        style={{ width, height }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-secondary hover-elevate active-elevate-2 flex items-center justify-center relative"
-      >
+    <CursorFollow 
+      className="relative"
+      content={
+        <div className="bg-primary text-primary-foreground px-2 py-1 rounded-full text-xs font-medium shadow-lg">
+          {title}
+        </div>
+      }
+    >
+      <a href={href} data-testid={`link-${title.toLowerCase()}`}>
         <motion.div
-          style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center"
+          ref={ref}
+          style={{ width, height }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          className="aspect-square rounded-full bg-secondary hover-elevate active-elevate-2 flex items-center justify-center relative"
         >
-          {icon}
-        </motion.div>
-        {hovered && (
           <motion.div
-            initial={{ opacity: 0, y: 10, x: "-50%" }}
-            animate={{ opacity: 1, y: 0, x: "-50%" }}
-            exit={{ opacity: 0, y: 2, x: "-50%" }}
-            className="px-2 py-0.5 whitespace-pre rounded-md bg-card border border-card-border absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
+            style={{ width: widthIcon, height: heightIcon }}
+            className="flex items-center justify-center"
           >
-            {title}
+            {icon}
           </motion.div>
-        )}
-      </motion.div>
-    </a>
+        </motion.div>
+      </a>
+    </CursorFollow>
   );
 }
