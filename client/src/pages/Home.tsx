@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Hero from "@/components/Hero";
 import PortfolioCard from "@/components/PortfolioCard";
 import CircularGallery from "@/components/CircularGallery";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -126,6 +127,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <TestimonialsSection />
     </div>
   );
 }
