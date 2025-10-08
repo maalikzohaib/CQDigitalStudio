@@ -70,13 +70,19 @@ export default function TestimonialsSection() {
                 role="article"
                 aria-labelledby={`card-${testimonial.id}-title`}
                 aria-describedby={`card-${testimonial.id}-content`}
+                data-testid={`card-testimonial-${index}`}
               >
                 <div className="flex flex-col items-center space-y-4 text-center">
                   <ReviewStars
                     className="text-purple-400"
                     rating={testimonial.rating}
+                    data-testid={`rating-testimonial-${index}`}
                   />
-                  <div className="mx-auto w-4/5 text-lg text-gray-300">
+                  <div 
+                    id={`card-${testimonial.id}-content`}
+                    className="mx-auto w-4/5 text-lg text-gray-300"
+                    data-testid={`text-testimonial-${index}`}
+                  >
                     <blockquote cite="#">"{testimonial.description}"</blockquote>
                   </div>
                 </div>
@@ -94,10 +100,17 @@ export default function TestimonialsSection() {
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <span className="block text-lg font-semibold tracking-tight text-white md:text-xl">
+                    <span 
+                      id={`card-${testimonial.id}-title`}
+                      className="block text-lg font-semibold tracking-tight text-white md:text-xl"
+                      data-testid={`text-name-${index}`}
+                    >
                       {testimonial.name}
                     </span>
-                    <span className="block text-sm text-gray-400">
+                    <span 
+                      className="block text-sm text-gray-400"
+                      data-testid={`text-profession-${index}`}
+                    >
                       {testimonial.profession}
                     </span>
                   </div>
