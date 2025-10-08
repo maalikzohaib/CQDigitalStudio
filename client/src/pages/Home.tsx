@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Hero from "@/components/Hero";
 import PortfolioCard from "@/components/PortfolioCard";
 import CircularGallery from "@/components/CircularGallery";
+import { Pricing } from "@/components/Pricing";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -12,6 +13,66 @@ import productImage from "@assets/generated_images/Product_portfolio_sample_6fc4
 
 export default function Home() {
   useScrollAnimation();
+  
+  const pricingPlans = [
+    {
+      name: "BASIC",
+      price: "499",
+      yearlyPrice: "399",
+      period: "per session",
+      features: [
+        "2-hour photo session",
+        "20 edited digital images",
+        "Basic retouching",
+        "Online gallery for 30 days",
+        "Print-ready files",
+      ],
+      description: "Perfect for individual portraits and small events",
+      buttonText: "Get Started",
+      href: "/contact",
+      isPopular: false,
+    },
+    {
+      name: "PROFESSIONAL",
+      price: "1299",
+      yearlyPrice: "1039",
+      period: "per session",
+      features: [
+        "Full-day coverage (8 hours)",
+        "100+ edited digital images",
+        "Advanced retouching",
+        "Online gallery for 1 year",
+        "4K video highlights (3-5 min)",
+        "Priority support",
+        "Custom shoot planning",
+      ],
+      description: "Ideal for weddings, corporate events, and brand campaigns",
+      buttonText: "Book Now",
+      href: "/contact",
+      isPopular: true,
+    },
+    {
+      name: "PREMIUM",
+      price: "2999",
+      yearlyPrice: "2399",
+      period: "per project",
+      features: [
+        "Multi-day coverage",
+        "Unlimited edited images",
+        "Professional retouching team",
+        "Permanent online gallery",
+        "Full cinematic video (10-15 min)",
+        "Drone photography/videography",
+        "Same-day sneak peeks",
+        "Premium album included",
+        "Dedicated account manager",
+      ],
+      description: "Complete solution for luxury events and commercial projects",
+      buttonText: "Contact Us",
+      href: "/contact",
+      isPopular: false,
+    },
+  ];
   
   const galleryItems = [
     { image: weddingImage, text: "Wedding Photography" },
@@ -125,6 +186,14 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </section>
+
+      <section className="py-24 bg-card">
+        <Pricing 
+          plans={pricingPlans}
+          title="Investment Packages"
+          description="Choose the perfect package for your photography and videography needs"
+        />
       </section>
     </div>
   );
