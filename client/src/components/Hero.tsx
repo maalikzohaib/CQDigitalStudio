@@ -68,7 +68,7 @@ export default function Hero() {
           <img 
             src={logoPath} 
             alt="CQ Digital Studio Logo" 
-            className="w-64 md:w-80 lg:w-96 h-auto mx-auto"
+            className="w-80 md:w-96 lg:w-[32rem] h-auto mx-auto"
             data-testid="img-hero-logo"
           />
         </motion.div>
