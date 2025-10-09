@@ -3,6 +3,7 @@ import { motion, stagger, useAnimate } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import Floating, { FloatingElement } from "@/components/ui/parallax-floating";
+import logoPath from "@assets/LOGO_1759990739353.png";
 
 export default function Hero() {
   const [scope, animate] = useAnimate();
@@ -58,32 +59,35 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.88, delay: 1.5 }}
       >
-        <div>
-          <motion.h1 
-            className="text-6xl md:text-8xl lg:text-9xl font-bold mb-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.7 }}
-          >
-            CQ DIGITAL
-          </motion.h1>
-          <motion.p 
-            className="text-xl md:text-2xl text-muted-foreground"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.9 }}
-          >
-            Cinematic Stories Through Lens
-          </motion.p>
-        </div>
+        <motion.div 
+          className="space-y-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.7 }}
+        >
+          <img 
+            src={logoPath} 
+            alt="CQ Digital Studio Logo" 
+            className="w-48 md:w-64 lg:w-80 h-auto mx-auto"
+            data-testid="img-hero-logo"
+          />
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              CQ Digital Studio
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground">
+              Cinematics Stories Through Lens
+            </p>
+          </div>
+        </motion.div>
         
         <motion.p 
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.1 }}
         >
-          Professional photography and videography services that capture your most precious moments with artistic excellence
+          Professional Photography and Videography Services That Capture Your Most Precious Moment With Artist Excellence
         </motion.p>
 
         <motion.div 
