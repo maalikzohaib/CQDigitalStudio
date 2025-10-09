@@ -89,29 +89,6 @@ export default function Hero() {
         >
           Professional Photography and Videography Services That Capture Your Most Precious Moment With Artist Excellence
         </motion.p>
-
-        <motion.div 
-          className="flex flex-wrap gap-4 justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 2.3 }}
-        >
-          <Link href="/portfolio">
-            <Button size="lg" className="min-h-12 px-8" data-testid="button-view-portfolio">
-              View Portfolio
-            </Button>
-          </Link>
-          <Link href="/contact">
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="min-h-12 px-8" 
-              data-testid="button-get-quote"
-            >
-              Get a Quote
-            </Button>
-          </Link>
-        </motion.div>
       </motion.div>
 
       <Floating sensitivity={-1} className="overflow-hidden">
