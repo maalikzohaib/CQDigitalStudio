@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion, stagger, useAnimate } from "motion/react";
-import { Button } from "@/components/ui/button";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Link } from "wouter";
 import Floating, { FloatingElement } from "@/components/ui/parallax-floating";
 import logoPath from "@assets/LOGO_1759990739353.png";
@@ -80,19 +80,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 2.3 }}
         >
           <Link href="/portfolio">
-            <Button size="lg" className="min-h-12 px-8" data-testid="button-view-portfolio">
+            <RainbowButton data-testid="button-view-portfolio">
               View Portfolio
-            </Button>
-          </Link>
-          <Link href="/contact">
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="min-h-12 px-8" 
-              data-testid="button-get-quote"
-            >
-              Get a Quote
-            </Button>
+            </RainbowButton>
           </Link>
         </motion.div>
       </motion.div>
