@@ -71,14 +71,6 @@ export default function Hero() {
             className="w-48 md:w-64 lg:w-80 h-auto mx-auto"
             data-testid="img-hero-logo"
           />
-          <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-              CQ Digital Studio
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground">
-              Cinematics Stories Through Lens
-            </p>
-          </div>
         </motion.div>
         
         <motion.p 
