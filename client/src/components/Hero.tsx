@@ -68,19 +68,10 @@ export default function Hero() {
           <img 
             src={logoPath} 
             alt="CQ Digital Studio Logo" 
-            className="w-48 md:w-64 lg:w-80 h-auto mx-auto"
+            className="w-64 md:w-80 lg:w-96 h-auto mx-auto"
             data-testid="img-hero-logo"
           />
         </motion.div>
-        
-        <motion.p 
-          className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 2.1 }}
-        >
-          Professional Photography and Videography Services That Capture Your Most Precious Moment With Artist Excellence
-        </motion.p>
 
         <motion.div 
           className="flex flex-wrap gap-4 justify-center"
