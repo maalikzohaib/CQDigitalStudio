@@ -5,42 +5,52 @@ import { Link } from "wouter";
 import Floating, { FloatingElement } from "@/components/ui/parallax-floating";
 import logoPath from "@assets/LOGO_1759990739353.png";
 
+// Import hero section images
+import image1 from "@assets/IMG_6508 - Copy_1760177450747.JPG?url";
+import image2 from "@assets/IMG_6513 - Copy_1760177450747.jpg?url";
+import image3 from "@assets/IMG_9176 - Copy_1760177450747.JPG?url";
+import image4 from "@assets/IMG_9487_1760177450747.JPG?url";
+import image5 from "@assets/GI5A8116_1760177450748.JPG?url";
+import image6 from "@assets/IMG_1071 - Copy_1760177450748.JPG?url";
+import image7 from "@assets/IMG_1759 - Copy_1760177450748.JPG?url";
+import image8 from "@assets/IMG_4571_1760177450748.jpg?url";
+
 export default function Hero() {
   const [scope, animate] = useAnimate();
 
-  // Photography portfolio images from Unsplash
+  // Photography portfolio images
   const portfolioImages = [
     {
-      url: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2400&auto=format&fit=crop",
-      title: "Wedding Photography",
+      url: image1,
+      title: "Fashion Photography",
     },
     {
-      url: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2400&auto=format&fit=crop",
-      title: "Event Photography", 
+      url: image2,
+      title: "Bridal Portrait", 
     },
     {
-      url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2400&auto=format&fit=crop",
-      title: "Wedding Moments",
+      url: image3,
+      title: "Wedding Jewelry",
     },
     {
-      url: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=2400&auto=format&fit=crop",
-      title: "Portrait Session",
+      url: image4,
+      title: "Bridal Beauty",
     },
     {
-      url: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=2400&auto=format&fit=crop",
+      url: image5,
+      title: "Corporate Portrait",
+    },
+    {
+      url: image6,
+      title: "Event Photography",
+    },
+    {
+      url: image7,
       title: "Fashion Portrait",
     },
     {
-      url: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2400&auto=format&fit=crop",
-      title: "Corporate Event",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?q=80&w=2400&auto=format&fit=crop",
-      title: "Product Photography",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1560707303-4e980ce876ad?q=80&w=2400&auto=format&fit=crop",
-      title: "Event Coverage",
+      url: image8,
+      title: "Mehndi Photography",
     },
   ];
 
