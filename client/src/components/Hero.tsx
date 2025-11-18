@@ -1,6 +1,7 @@
 import { ContainerScroll, BentoGrid, BentoCell, ContainerScale } from "@/components/ui/hero-gallery-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { useState, useEffect } from "react";
 import weddingImage from "@assets/generated_images/Wedding_portfolio_sample_1f6f9bd5.png";
 import eventImage from "@assets/generated_images/Event_portfolio_sample_f4a5e768.png";
 import portraitImage from "@assets/generated_images/Portrait_portfolio_sample_63794526.png";
@@ -9,6 +10,8 @@ import studioHeroImage from "@assets/generated_images/Studio_hero_background_f49
 import logoImage from "@assets/LOGO_1759990739353_backup.png";
 
 export default function Hero() {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  
   const IMAGES = [
     weddingImage,
     eventImage,
@@ -16,20 +19,40 @@ export default function Hero() {
     productImage,
     studioHeroImage,
   ];
+  
+  useEffect(() => {
+    const preloadImages = async () => {
+      const promises = IMAGES.slice(0, 2).map((src) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = resolve;
+          img.onerror = resolve;
+        });
+      });
+      await Promise.all(promises);
+      setImagesLoaded(true);
+    };
+    preloadImages();
+  }, []);
 
   return (
     <ContainerScroll className="h-[250vh] w-full" style={{ scrollBehavior: 'smooth' }}>
-      <BentoGrid className="sticky left-0 top-0 z-0 h-screen w-full p-4 will-change-transform">
+      <BentoGrid className="sticky left-0 top-0 z-0 h-screen w-full p-4">
         {IMAGES.map((imageUrl, index) => (
           <BentoCell
             key={index}
-            className="overflow-hidden rounded-xl shadow-xl will-change-transform"
+            className="overflow-hidden rounded-xl shadow-xl"
           >
             <img
               className="size-full object-cover object-center"
               src={imageUrl}
               alt={`CQ Digital Studio Gallery ${index + 1}`}
-              loading="eager"
+              loading={index < 2 ? "eager" : "lazy"}
+              decoding="async"
+              style={{
+                contentVisibility: index > 1 ? 'auto' : 'visible',
+              }}
             />
           </BentoCell>
         ))}

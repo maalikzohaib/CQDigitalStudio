@@ -40,8 +40,8 @@ export function ServicesSlideshow() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        viewport={{ once: true, margin: "-100px", amount: 0.3 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="text-center mb-8 px-6"
       >
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
@@ -56,8 +56,8 @@ export function ServicesSlideshow() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           className="flex flex-wrap items-center justify-evenly gap-8 md:gap-16"
         >
           <div className="flex flex-col space-y-3 md:space-y-5">
@@ -79,7 +79,7 @@ export function ServicesSlideshow() {
                   src={slide.imageUrl}
                   alt={slide.title}
                   className="size-full max-h-96 md:max-h-[500px] object-cover rounded-xl"
-                  loading="eager"
+                  loading="lazy"
                   decoding="async"
                 />
               </div>

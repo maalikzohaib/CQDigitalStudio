@@ -106,8 +106,8 @@ const BentoCell = React.forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
       <motion.div
         ref={ref}
         className={className}
-        style={{ translate, scale, ...style }}
-        transition={{ type: "spring", stiffness: 100, damping: 30 }}
+        style={{ translate, scale, willChange: 'transform', ...style }}
+        transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
         {...props}
       ></motion.div>
     )
@@ -133,9 +133,10 @@ const ContainerScale = React.forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
           scale,
           position,
           opacity,
+          willChange: 'transform, opacity',
           ...style,
         }}
-        transition={{ type: "spring", stiffness: 100, damping: 30 }}
+        transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}
         {...props}
       />
     )
