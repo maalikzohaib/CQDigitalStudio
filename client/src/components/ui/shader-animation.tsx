@@ -27,39 +27,26 @@ export function ShaderAnimation() {
 
     // Fragment shader
     const fragmentShader = `
+      #define TWO_PI 6.2831853072
+      #define PI 3.14159265359
+
       precision highp float;
       uniform vec2 resolution;
       uniform float time;
 
-      vec3 palette(float t) {
-        vec3 deep = vec3(0.58, 0.40, 0.08);
-        vec3 mid = vec3(0.98, 0.82, 0.36);
-        vec3 highlight = vec3(1.0, 0.95, 0.78);
-        float curve = smoothstep(0.3, 1.0, t);
-        return mix(mix(deep, mid, t), highlight, curve);
-      }
-
       void main(void) {
-        vec2 uv = (gl_FragCoord.xy / resolution.xy) * 2.0 - 1.0;
-        uv.x *= resolution.x / resolution.y;
+        vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
+        float t = time*0.05;
+        float lineWidth = 0.002;
 
-        float radial = length(uv);
-        float angle = atan(uv.y, uv.x);
-        float timeFactor = time * 0.4;
-
-        float wave = sin(radial * 10.0 - timeFactor * 6.5) * 0.5 + 0.5;
-        float sweep = cos(angle * 5.5 + timeFactor * 4.0) * 0.5 + 0.5;
-        float ripple = sin((uv.x + uv.y) * 18.0 + timeFactor * 9.0) * 0.5 + 0.5;
-
-        float gradient = clamp(1.0 - radial, 0.0, 1.0);
-        float mixFactor = clamp(gradient * 0.65 + wave * 0.25 + sweep * 0.1, 0.0, 1.0);
-        vec3 color = palette(mixFactor);
-
-        float sparkle = pow(ripple, 3.0) * (0.6 + 0.4 * gradient);
-        color += sparkle * vec3(1.0, 0.94, 0.7);
-        color = clamp(color, 0.0, 1.0);
-
-        gl_FragColor = vec4(color, 1.0);
+        vec3 color = vec3(0.0);
+        for(int j = 0; j < 3; j++){
+          for(int i=0; i < 5; i++){
+            color[j] += lineWidth*float(i*i) / abs(fract(t - 0.01*float(j)+float(i)*0.01)*5.0 - length(uv) + mod(uv.x+uv.y, 0.2));
+          }
+        }
+        
+        gl_FragColor = vec4(color[0],color[1],color[2],1.0);
       }
     `
 
@@ -148,7 +135,7 @@ export function ShaderAnimation() {
       ref={containerRef}
       className="w-full h-screen"
       style={{
-        background: "linear-gradient(135deg, #fefae5 0%, #f3ca6b 45%, #ba7f1d 100%)",
+        background: "#000",
         overflow: "hidden",
       }}
     />

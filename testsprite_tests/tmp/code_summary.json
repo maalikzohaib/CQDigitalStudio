@@ -1,0 +1,191 @@
+{
+  "tech_stack": [
+    "TypeScript",
+    "React",
+    "Vite",
+    "Express.js",
+    "TailwindCSS",
+    "Framer Motion",
+    "GSAP",
+    "ShadCN/UI",
+    "Radix UI",
+    "Wouter",
+    "TanStack Query",
+    "React Hook Form",
+    "Zod",
+    "Drizzle ORM",
+    "PostgreSQL",
+    "Three.js",
+    "OGL"
+  ],
+  "features": [
+    {
+      "name": "Hero Section",
+      "description": "Main landing section with animated background, shader effects, and call-to-action buttons",
+      "files": [
+        "client/src/components/Hero.tsx",
+        "client/src/components/HeroBackground.tsx",
+        "client/src/components/NovaGlow.tsx"
+      ]
+    },
+    {
+      "name": "Navigation System",
+      "description": "Responsive navigation bar with mobile menu and smooth transitions",
+      "files": [
+        "client/src/components/Navbar.tsx"
+      ]
+    },
+    {
+      "name": "Circular Gallery",
+      "description": "Interactive circular image gallery with smooth scrolling and hover effects",
+      "files": [
+        "client/src/components/CircularGallery.tsx",
+        "client/src/components/CircularGallery.css"
+      ]
+    },
+    {
+      "name": "Portfolio Management",
+      "description": "Portfolio showcase with filtering, lightbox, and category-based organization",
+      "files": [
+        "client/src/components/PortfolioCard.tsx",
+        "client/src/components/FilterTabs.tsx",
+        "client/src/components/ZoomImage.tsx",
+        "client/src/pages/Portfolio.tsx"
+      ]
+    },
+    {
+      "name": "Service Cards",
+      "description": "Service showcase with animated cards and detailed descriptions",
+      "files": [
+        "client/src/components/ServiceCard.tsx",
+        "client/src/pages/Services.tsx"
+      ]
+    },
+    {
+      "name": "Package Pricing",
+      "description": "Pricing tiers display with feature comparison and booking functionality",
+      "files": [
+        "client/src/components/PackageCard.tsx",
+        "client/src/components/Pricing.tsx",
+        "client/src/pages/Packages.tsx"
+      ]
+    },
+    {
+      "name": "Testimonials System",
+      "description": "Client testimonials with animated columns and star ratings",
+      "files": [
+        "client/src/components/TestimonialCard.tsx",
+        "client/src/components/ui/testimonials-columns-demo.tsx",
+        "client/src/pages/Testimonials.tsx"
+      ]
+    },
+    {
+      "name": "Contact Form",
+      "description": "Contact form with validation, file upload, and submission handling",
+      "files": [
+        "client/src/components/ContactForm.tsx",
+        "client/src/pages/Contact.tsx"
+      ]
+    },
+    {
+      "name": "About Page",
+      "description": "Company information, team showcase, and mission statement",
+      "files": [
+        "client/src/pages/About.tsx"
+      ]
+    },
+    {
+      "name": "Animation System",
+      "description": "Scroll animations, page transitions, and interactive effects using GSAP and Framer Motion",
+      "files": [
+        "client/src/hooks/useScrollAnimation.ts",
+        "client/src/hooks/use-mouse-position-ref.tsx",
+        "client/src/hooks/use-mouse-vector.tsx"
+      ]
+    },
+    {
+      "name": "UI Component Library",
+      "description": "Comprehensive UI component system based on ShadCN/UI and Radix UI",
+      "files": [
+        "client/src/components/ui/"
+      ]
+    },
+    {
+      "name": "Shader Effects",
+      "description": "WebGL shader animations and 3D effects for visual enhancement",
+      "files": [
+        "client/src/components/ui/shader-animation.tsx"
+      ]
+    },
+    {
+      "name": "Glowing Effects",
+      "description": "Interactive glowing card effects and visual enhancements",
+      "files": [
+        "client/src/components/ui/glowing-effect.tsx",
+        "client/src/components/ui/glowing-effect-demo.tsx"
+      ]
+    },
+    {
+      "name": "Card Stack Component",
+      "description": "Interactive card stacking component with 3D effects",
+      "files": [
+        "client/src/components/ui/card-stack.tsx"
+      ]
+    },
+    {
+      "name": "Flip Card Component",
+      "description": "3D flip card component for interactive content display",
+      "files": [
+        "client/src/components/FlipCard.tsx"
+      ]
+    },
+    {
+      "name": "Footer Component",
+      "description": "Site footer with navigation links, contact info, and social media",
+      "files": [
+        "client/src/components/Footer.tsx"
+      ]
+    },
+    {
+      "name": "Backend API",
+      "description": "Express.js server with API routes for contact form and data handling",
+      "files": [
+        "server/index.ts",
+        "server/routes.ts",
+        "server/storage.ts",
+        "server/vite.ts"
+      ]
+    },
+    {
+      "name": "Database Schema",
+      "description": "Database schema definitions using Drizzle ORM",
+      "files": [
+        "shared/schema.ts",
+        "drizzle.config.ts"
+      ]
+    },
+    {
+      "name": "Routing System",
+      "description": "Client-side routing with Wouter and page transitions",
+      "files": [
+        "client/src/App.tsx",
+        "client/src/pages/Home.tsx",
+        "client/src/pages/About.tsx",
+        "client/src/pages/Services.tsx",
+        "client/src/pages/Portfolio.tsx",
+        "client/src/pages/Packages.tsx",
+        "client/src/pages/Testimonials.tsx",
+        "client/src/pages/Contact.tsx"
+      ]
+    },
+    {
+      "name": "Utility Functions",
+      "description": "Shared utility functions and helper methods",
+      "files": [
+        "client/src/lib/utils.ts",
+        "client/src/lib/queryClient.ts"
+      ]
+    }
+  ]
+}
+

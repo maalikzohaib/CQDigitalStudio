@@ -1,0 +1,15 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:5000",
+  "executionArgs": {
+    "projectName": "CQDigitalStudio",
+    "projectPath": "F:\\Clients\\1 Github\\Dad\\CQDigitalStudio",
+    "testIds": [],
+    "additionalInstruction": "Generate comprehensive tests for the CQ Digital Studio photography website including navigation, portfolio gallery, contact forms, animations, and responsive design testing.",
+    "envs": {
+      "API_KEY": "sk-user-9QLrHFUv0ChAd2jp8LUbqMBYEbmDYzcChPhVxxFVfqD0gmq3mvU5ZF6gq2h-qOEO8twJ7NDS51lQTQvmL4o3LfuHTWWg5R8t9IPh5rVgZBP9rXsDUUwkeYLAF2AJ9_h5caM"
+    }
+  }
+}

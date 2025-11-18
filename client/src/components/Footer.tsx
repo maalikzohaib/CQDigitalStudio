@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Facebook, Instagram, Youtube, Send, Twitter } from "lucide-react";
 import { Link } from "wouter";
+import logo from "@assets/LOGO_1759990739353.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,28 +19,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">Stay Connected</h2>
-            <p className="mb-6 text-muted-foreground">
-              Join our newsletter for the latest updates and exclusive offers.
-            </p>
-            <form className="relative" onSubmit={(e) => e.preventDefault()}>
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="pr-12 backdrop-blur-sm"
-                data-testid="input-newsletter-email"
-              />
-              <Button
-                type="submit"
-                size="icon"
-                className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
-                data-testid="button-newsletter-submit"
-              >
-                <Send className="h-4 w-4" />
-                <span className="sr-only">Subscribe</span>
-              </Button>
-            </form>
-            <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
+            <img src={logo} alt="CQ Digital Studio Logo" className="h-32" />
           </div>
           <div>
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>

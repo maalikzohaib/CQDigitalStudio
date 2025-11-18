@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 import { Award, Users, Camera } from "lucide-react";
-import teamImage from "@assets/generated_images/Team_photo_30d191f1.png";
-import ZoomImage from "@/components/ZoomImage";
 
 export default function About() {
   const stats = [
@@ -26,20 +24,6 @@ export default function About() {
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               We are a team of passionate photographers and videographers dedicated to capturing life's most precious moments with artistic excellence and technical precision.
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-24"
-          >
-            <ZoomImage
-              src={teamImage}
-              alt="CQ Digital Studio Team"
-              className="w-full rounded-lg"
-              zoomScale={1.5}
-            />
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">

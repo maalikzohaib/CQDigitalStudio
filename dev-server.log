@@ -1,0 +1,6 @@
+
+> rest-express@1.0.0 dev
+> cross-env NODE_ENV=development tsx server/index.ts
+
+Re-optimizing dependencies because vite config has changed
+8:58:50 PM [express] serving on port 8000

@@ -4,6 +4,7 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
+  assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.PNG'],
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -32,6 +33,7 @@ export default defineConfig({
     emptyOutDir: true,
   },
   server: {
+    port: 8000,
     fs: {
       strict: true,
       deny: ["**/.*"],

@@ -88,8 +88,8 @@ export default {
         "color-5": "hsl(var(--color-5))",
       },
       fontFamily: {
-        sans: ["Inter", "var(--font-sans)"],
-        display: ["Space Grotesk", "Inter", "sans-serif"],
+        sans: ["Poppins", "sans-serif"],
+        display: ["Poppins", "sans-serif"],
         serif: ["var(--font-serif)"],
         mono: ["JetBrains Mono", "var(--font-mono)"],
       },

@@ -1,0 +1,414 @@
+{
+  "project_name": "CQ Digital Studio",
+  "test_plan": [
+    {
+      "id": "navigation_test",
+      "name": "Navigation System Testing",
+      "description": "Test the responsive navigation bar and mobile menu functionality",
+      "test_cases": [
+        {
+          "id": "nav_001",
+          "name": "Desktop Navigation Display",
+          "description": "Verify navigation bar displays correctly on desktop with all menu items",
+          "steps": [
+            "Navigate to the homepage",
+            "Verify navigation bar is visible at the top",
+            "Check all menu items are displayed (Home, About, Services, Portfolio, Packages, Testimonials, Contact)",
+            "Verify logo is displayed correctly"
+          ],
+          "expected_result": "Navigation bar displays all menu items and logo correctly on desktop"
+        },
+        {
+          "id": "nav_002", 
+          "name": "Mobile Navigation Menu",
+          "description": "Test mobile hamburger menu functionality",
+          "steps": [
+            "Resize browser to mobile viewport",
+            "Verify hamburger menu icon is visible",
+            "Click hamburger menu to open mobile navigation",
+            "Verify all menu items are accessible in mobile menu",
+            "Click outside menu to close it"
+          ],
+          "expected_result": "Mobile menu opens/closes correctly and displays all navigation items"
+        },
+        {
+          "id": "nav_003",
+          "name": "Navigation Links Functionality",
+          "description": "Test that all navigation links work correctly",
+          "steps": [
+            "Click on 'About' link",
+            "Verify page navigates to About section",
+            "Click on 'Services' link", 
+            "Verify page navigates to Services section",
+            "Click on 'Portfolio' link",
+            "Verify page navigates to Portfolio section",
+            "Click on 'Packages' link",
+            "Verify page navigates to Packages section",
+            "Click on 'Testimonials' link",
+            "Verify page navigates to Testimonials section",
+            "Click on 'Contact' link",
+            "Verify page navigates to Contact section"
+          ],
+          "expected_result": "All navigation links successfully navigate to their respective pages"
+        }
+      ]
+    },
+    {
+      "id": "hero_section_test",
+      "name": "Hero Section Testing",
+      "description": "Test the main hero section with animations and call-to-action buttons",
+      "test_cases": [
+        {
+          "id": "hero_001",
+          "name": "Hero Section Display",
+          "description": "Verify hero section displays correctly with all elements",
+          "steps": [
+            "Navigate to homepage",
+            "Verify hero section is visible",
+            "Check that main heading is displayed",
+            "Verify call-to-action buttons are present",
+            "Check that background effects are working"
+          ],
+          "expected_result": "Hero section displays all elements correctly with proper styling"
+        },
+        {
+          "id": "hero_002",
+          "name": "Hero Animations",
+          "description": "Test hero section animations and effects",
+          "steps": [
+            "Load the homepage",
+            "Observe initial animation of hero content",
+            "Check for smooth transitions and effects",
+            "Verify shader animations are working properly"
+          ],
+          "expected_result": "Hero section animations play smoothly without errors"
+        },
+        {
+          "id": "hero_003",
+          "name": "Call-to-Action Buttons",
+          "description": "Test CTA buttons functionality",
+          "steps": [
+            "Locate 'View Portfolio' button in hero section",
+            "Click the button",
+            "Verify it navigates to Portfolio page",
+            "Locate 'Get Quote' or similar CTA button",
+            "Click the button",
+            "Verify it navigates to Contact page"
+          ],
+          "expected_result": "CTA buttons navigate to correct pages when clicked"
+        }
+      ]
+    },
+    {
+      "id": "portfolio_gallery_test",
+      "name": "Portfolio Gallery Testing",
+      "description": "Test the circular gallery and portfolio showcase functionality",
+      "test_cases": [
+        {
+          "id": "gallery_001",
+          "name": "Circular Gallery Display",
+          "description": "Test the circular gallery component displays correctly",
+          "steps": [
+            "Navigate to homepage",
+            "Scroll to gallery section",
+            "Verify circular gallery is visible",
+            "Check that images are displayed in circular format",
+            "Verify text labels are shown for each image"
+          ],
+          "expected_result": "Circular gallery displays all images with proper labels"
+        },
+        {
+          "id": "gallery_002",
+          "name": "Gallery Interactions",
+          "description": "Test gallery scrolling and hover effects",
+          "steps": [
+            "Hover over gallery items",
+            "Verify hover effects are working",
+            "Test scrolling through gallery items",
+            "Check that smooth scrolling animations work"
+          ],
+          "expected_result": "Gallery interactions work smoothly with proper hover effects"
+        },
+        {
+          "id": "gallery_003",
+          "name": "Portfolio Page Gallery",
+          "description": "Test portfolio page with filtering and lightbox",
+          "steps": [
+            "Navigate to Portfolio page",
+            "Verify gallery grid is displayed",
+            "Test filter tabs (Photos, Videos, Events)",
+            "Click on filter tabs to change content",
+            "Click on individual portfolio items",
+            "Verify lightbox/modal opens with image details"
+          ],
+          "expected_result": "Portfolio page filtering and lightbox functionality work correctly"
+        }
+      ]
+    },
+    {
+      "id": "services_test",
+      "name": "Services Page Testing",
+      "description": "Test the services showcase and service cards",
+      "test_cases": [
+        {
+          "id": "services_001",
+          "name": "Services Page Display",
+          "description": "Verify services page displays all service categories",
+          "steps": [
+            "Navigate to Services page",
+            "Verify page loads correctly",
+            "Check that all service categories are displayed",
+            "Verify service cards are properly formatted",
+            "Check that icons and descriptions are visible"
+          ],
+          "expected_result": "Services page displays all service categories with proper formatting"
+        },
+        {
+          "id": "services_002",
+          "name": "Service Card Interactions",
+          "description": "Test service card hover effects and interactions",
+          "steps": [
+            "Hover over service cards",
+            "Verify hover effects are working",
+            "Check that card animations are smooth",
+            "Test clicking on service cards if they have links"
+          ],
+          "expected_result": "Service cards have proper hover effects and interactions"
+        }
+      ]
+    },
+    {
+      "id": "packages_test",
+      "name": "Packages Page Testing",
+      "description": "Test the pricing packages and booking functionality",
+      "test_cases": [
+        {
+          "id": "packages_001",
+          "name": "Package Display",
+          "description": "Verify all pricing packages are displayed correctly",
+          "steps": [
+            "Navigate to Packages page",
+            "Verify all package tiers are displayed (Bronze, Silver, Gold)",
+            "Check that pricing information is visible",
+            "Verify package features are listed",
+            "Check that 'Book Now' buttons are present"
+          ],
+          "expected_result": "All package tiers display with correct pricing and features"
+        },
+        {
+          "id": "packages_002",
+          "name": "Package Selection",
+          "description": "Test package selection and booking flow",
+          "steps": [
+            "Click on 'Book Now' button for any package",
+            "Verify it navigates to contact/booking form",
+            "Check that package information is pre-filled or referenced",
+            "Test the booking form functionality"
+          ],
+          "expected_result": "Package booking flow works correctly"
+        }
+      ]
+    },
+    {
+      "id": "testimonials_test",
+      "name": "Testimonials Testing",
+      "description": "Test testimonials display and animations",
+      "test_cases": [
+        {
+          "id": "testimonials_001",
+          "name": "Testimonials Display",
+          "description": "Verify testimonials are displayed correctly",
+          "steps": [
+            "Navigate to Testimonials page",
+            "Verify testimonials are displayed",
+            "Check that client names and reviews are visible",
+            "Verify star ratings are displayed",
+            "Check that testimonials are properly formatted"
+          ],
+          "expected_result": "Testimonials display with proper formatting and content"
+        },
+        {
+          "id": "testimonials_002",
+          "name": "Testimonials Animations",
+          "description": "Test testimonials carousel and animations",
+          "steps": [
+            "Observe testimonials animations",
+            "Check for smooth transitions between testimonials",
+            "Verify carousel functionality if present",
+            "Test any interactive elements"
+          ],
+          "expected_result": "Testimonials animations work smoothly"
+        }
+      ]
+    },
+    {
+      "id": "contact_form_test",
+      "name": "Contact Form Testing",
+      "description": "Test contact form functionality and validation",
+      "test_cases": [
+        {
+          "id": "contact_001",
+          "name": "Contact Form Display",
+          "description": "Verify contact form displays all required fields",
+          "steps": [
+            "Navigate to Contact page",
+            "Verify contact form is visible",
+            "Check that all required fields are present (name, email, phone, message)",
+            "Verify form styling is correct",
+            "Check that submit button is present"
+          ],
+          "expected_result": "Contact form displays all required fields with proper styling"
+        },
+        {
+          "id": "contact_002",
+          "name": "Form Validation",
+          "description": "Test form validation for required fields",
+          "steps": [
+            "Try to submit form with empty fields",
+            "Verify validation messages appear",
+            "Fill in invalid email format",
+            "Verify email validation works",
+            "Fill in all fields correctly",
+            "Verify form accepts valid input"
+          ],
+          "expected_result": "Form validation works correctly for all fields"
+        },
+        {
+          "id": "contact_003",
+          "name": "Form Submission",
+          "description": "Test form submission functionality",
+          "steps": [
+            "Fill in all required fields with valid data",
+            "Click submit button",
+            "Verify form submission response",
+            "Check for success/error messages",
+            "Verify form data is processed correctly"
+          ],
+          "expected_result": "Form submission works correctly with proper feedback"
+        }
+      ]
+    },
+    {
+      "id": "responsive_design_test",
+      "name": "Responsive Design Testing",
+      "description": "Test website responsiveness across different screen sizes",
+      "test_cases": [
+        {
+          "id": "responsive_001",
+          "name": "Mobile Responsiveness",
+          "description": "Test website on mobile devices",
+          "steps": [
+            "Resize browser to mobile viewport (375px width)",
+            "Verify all content is visible and properly formatted",
+            "Check that navigation menu works on mobile",
+            "Verify images and text are properly sized",
+            "Test scrolling and interactions on mobile"
+          ],
+          "expected_result": "Website displays correctly on mobile devices"
+        },
+        {
+          "id": "responsive_002",
+          "name": "Tablet Responsiveness",
+          "description": "Test website on tablet devices",
+          "steps": [
+            "Resize browser to tablet viewport (768px width)",
+            "Verify layout adapts correctly",
+            "Check that all components are properly sized",
+            "Test navigation and interactions",
+            "Verify gallery and portfolio display correctly"
+          ],
+          "expected_result": "Website displays correctly on tablet devices"
+        },
+        {
+          "id": "responsive_003",
+          "name": "Desktop Responsiveness",
+          "description": "Test website on desktop devices",
+          "steps": [
+            "Resize browser to desktop viewport (1200px+ width)",
+            "Verify full layout is displayed",
+            "Check that all animations work properly",
+            "Test hover effects and interactions",
+            "Verify gallery and portfolio display with full features"
+          ],
+          "expected_result": "Website displays correctly on desktop devices"
+        }
+      ]
+    },
+    {
+      "id": "animations_test",
+      "name": "Animations and Effects Testing",
+      "description": "Test all animations, transitions, and visual effects",
+      "test_cases": [
+        {
+          "id": "animations_001",
+          "name": "Page Transitions",
+          "description": "Test smooth page transitions",
+          "steps": [
+            "Navigate between different pages",
+            "Observe page transition animations",
+            "Check that transitions are smooth",
+            "Verify no layout shifts during transitions"
+          ],
+          "expected_result": "Page transitions are smooth and professional"
+        },
+        {
+          "id": "animations_002",
+          "name": "Scroll Animations",
+          "description": "Test scroll-triggered animations",
+          "steps": [
+            "Scroll down the homepage",
+            "Observe scroll-triggered animations",
+            "Check that elements animate into view",
+            "Verify animations are smooth and not jarring"
+          ],
+          "expected_result": "Scroll animations work smoothly and enhance user experience"
+        },
+        {
+          "id": "animations_003",
+          "name": "Interactive Effects",
+          "description": "Test interactive hover effects and button animations",
+          "steps": [
+            "Hover over interactive elements",
+            "Check that hover effects work properly",
+            "Click buttons and verify click animations",
+            "Test any other interactive effects"
+          ],
+          "expected_result": "Interactive effects enhance user experience without being distracting"
+        }
+      ]
+    },
+    {
+      "id": "performance_test",
+      "name": "Performance Testing",
+      "description": "Test website performance and loading times",
+      "test_cases": [
+        {
+          "id": "performance_001",
+          "name": "Page Load Speed",
+          "description": "Test initial page load performance",
+          "steps": [
+            "Open browser developer tools",
+            "Navigate to homepage",
+            "Measure page load time",
+            "Check for any slow-loading resources",
+            "Verify images load efficiently"
+          ],
+          "expected_result": "Page loads quickly with optimized performance"
+        },
+        {
+          "id": "performance_002",
+          "name": "Image Optimization",
+          "description": "Test image loading and optimization",
+          "steps": [
+            "Check that images are properly optimized",
+            "Verify images load progressively",
+            "Test on slower network connections",
+            "Check for any broken images"
+          ],
+          "expected_result": "Images are optimized and load efficiently"
+        }
+      ]
+    }
+  ]
+}
+

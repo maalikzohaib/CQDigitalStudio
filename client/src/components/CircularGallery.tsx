@@ -114,6 +114,7 @@ class Media {
   text: string;
   viewport: any;
   bend: number;
+  currentBend: number;
   textColor: string;
   borderRadius: number;
   font: string;
@@ -157,6 +158,7 @@ class Media {
     this.text = text;
     this.viewport = viewport;
     this.bend = bend;
+    this.currentBend = bend;
     this.textColor = textColor;
     this.borderRadius = borderRadius;
     this.font = font;
@@ -247,14 +249,14 @@ class Media {
     this.plane.setParent(this.scene);
   }
   createTitle() {
-    this.title = new Title({
-      gl: this.gl,
-      plane: this.plane,
-      renderer: this.renderer,
-      text: this.text,
-      textColor: this.textColor,
-      fontFamily: this.font
-    });
+    // this.title = new Title({
+    //   gl: this.gl,
+    //   plane: this.plane,
+    //   renderer: this.renderer,
+    //   text: this.text,
+    //   textColor: this.textColor,
+    //   fontFamily: this.font
+    // });
   }
   update(scroll: any, direction: string) {
     this.plane.position.x = this.x - scroll.current - this.extra;
@@ -262,16 +264,16 @@ class Media {
     const x = this.plane.position.x;
     const H = this.viewport.width / 2;
 
-    if (this.bend === 0) {
+    if (this.currentBend === 0) {
       this.plane.position.y = 0;
       this.plane.rotation.z = 0;
     } else {
-      const B_abs = Math.abs(this.bend);
+      const B_abs = Math.abs(this.currentBend);
       const R = (H * H + B_abs * B_abs) / (2 * B_abs);
       const effectiveX = Math.min(Math.abs(x), H);
 
       const arc = R - Math.sqrt(R * R - effectiveX * effectiveX);
-      if (this.bend > 0) {
+      if (this.currentBend > 0) {
         this.plane.position.y = -arc;
         this.plane.rotation.z = -Math.sign(x) * Math.asin(effectiveX / R);
       } else {
@@ -305,11 +307,27 @@ class Media {
         this.plane.program.uniforms.uViewportSizes.value = [this.viewport.width, this.viewport.height];
       }
     }
-    this.scale = this.screen.height / 1500;
+
+    const isMobile = this.screen.width < 768;
+    const isTablet = this.screen.width >= 768 && this.screen.width < 1280;
+
+    if (isMobile) { // Mobile
+      this.scale = this.screen.height / 1600; // Increased scale for larger images
+      this.currentBend = this.bend * 0.4; // Reduced bend for less stacking
+    } else if (isTablet) { // Tablet / small desktop
+      this.scale = this.screen.height / 1650;
+      this.currentBend = this.bend * 0.85;
+    } else { // Large desktop
+      this.scale = this.screen.height / 1500;
+      this.currentBend = this.bend;
+    }
+
     this.plane.scale.y = (this.viewport.height * (900 * this.scale)) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (700 * this.scale)) / this.screen.width;
+    const aspectRatio = isMobile ? 0.75 : isTablet ? 0.72 : 0.75; // Increased mobile aspect ratio
+    this.plane.scale.x = this.plane.scale.y * aspectRatio;
+
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
-    this.padding = 2;
+    this.padding = isMobile ? 2.2 : 2; // Increased mobile padding for better spacing
     this.width = this.plane.scale.x + this.padding;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
@@ -393,8 +411,8 @@ class App {
   }
   createGeometry() {
     this.planeGeometry = new Plane(this.gl, {
-      heightSegments: 50,
-      widthSegments: 100
+      heightSegments: 20,
+      widthSegments: 40
     });
   }
   createMedias(items: any[], bend = 1, textColor: string, borderRadius: number, font: string) {
@@ -574,17 +592,17 @@ export default function CircularGallery({
   if (!webGLSupported) {
     return (
       <div className="w-full py-12">
-        <div className="flex gap-6 overflow-x-auto px-6 pb-6" style={{ scrollbarWidth: 'thin' }}>
+        <div className="flex gap-4 sm:gap-6 overflow-x-auto px-4 sm:px-6 pb-6" style={{ scrollbarWidth: 'thin' }}>
           {(items || []).slice(0, 10).map((item, index) => (
             <div key={index} className="flex-shrink-0">
-              <div className="relative w-64 h-48 rounded-lg overflow-hidden">
+              <div className="relative w-40 h-32 sm:w-56 sm:h-40 md:w-64 md:h-48 rounded-lg overflow-hidden">
                 <img 
                   src={item.image} 
                   alt={item.text}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p className="text-white font-bold">{item.text}</p>
+                  <p className="text-white font-bold"></p>
                 </div>
               </div>
             </div>

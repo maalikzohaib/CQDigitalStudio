@@ -66,8 +66,15 @@ export function Pricing({
     }
   };
 
+  const gridColumnClasses =
+    plans.length >= 3
+      ? "md:grid-cols-2 lg:grid-cols-3"
+      : plans.length === 2
+        ? "md:grid-cols-2"
+        : "md:grid-cols-1";
+
   return (
-    <div className="container py-20">
+    <div className="container py-20 px-4 md:px-6">
       <div className="text-center space-y-4 mb-12">
         <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
           {title}
@@ -92,8 +99,12 @@ export function Pricing({
           Annual <span className="text-primary">(Save 20%)</span>
         </span>
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div
+        className={cn(
+          "grid grid-cols-1 gap-6 max-w-6xl mx-auto justify-items-center",
+          gridColumnClasses
+        )}
+      >
         {plans.map((plan, index) => (
           <motion.div
             key={index}
@@ -101,10 +112,9 @@ export function Pricing({
             whileInView={
               isDesktop
                 ? {
-                    y: plan.isPopular ? -20 : 0,
+                    y: plan.isPopular ? -16 : 0,
                     opacity: 1,
-                    x: index === 2 ? -30 : index === 0 ? 30 : 0,
-                    scale: index === 0 || index === 2 ? 0.94 : 1.0,
+                    scale: plan.isPopular ? 1.02 : 0.98,
                   }
                 : { y: 0, opacity: 1 }
             }
@@ -118,7 +128,7 @@ export function Pricing({
               opacity: { duration: 0.5 },
             }}
             className={cn(
-              "rounded-2xl border p-6 bg-background text-center lg:flex lg:flex-col lg:justify-center relative",
+              "rounded-2xl border p-6 bg-background text-center lg:flex lg:flex-col lg:justify-center relative w-full max-w-sm mx-auto",
               plan.isPopular ? "border-primary border-2" : "border-border",
               "flex flex-col",
               !plan.isPopular && "mt-5"

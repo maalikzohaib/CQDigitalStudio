@@ -1,8 +1,47 @@
 import { motion } from "framer-motion";
-import ContactForm from "@/components/ContactForm";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
+import ContactForm from "@/components/ContactForm";
+
+
 export default function Contact() {
+  const markers = [
+    {
+      id: 1,
+      position: [24.8607, 67.0011] as const,
+      color: "blue",
+      size: "large",
+      popup: {
+        title: "CQ Digital Studio — Karachi",
+        content: "Main production studio at Clifton Block 5, Karachi.",
+        image:
+          "https://images.unsplash.com/photo-1470123808288-1e59739eca14?auto=format&fit=crop&w=400&q=80",
+      },
+    },
+    {
+      id: 2,
+      position: [31.5204, 74.3587] as const,
+      color: "violet",
+      size: "medium",
+      popup: {
+        title: "Client Lounge — Lahore",
+        content: "Meeting suite and editing desk in Gulberg, Lahore.",
+        image:
+          "https://images.unsplash.com/photo-1529429617124-aee711a65a0b?auto=format&fit=crop&w=400&q=80",
+      },
+    },
+  ];
+
+  const circles = [
+    {
+      id: 1,
+      center: [24.8607, 67.0011] as const,
+      radius: 1200,
+      style: { color: "#0ea5e9", fillOpacity: 0.15 },
+      popup: "Primary service coverage around our Karachi studio.",
+    },
+  ];
+
   return (
     <div className="pt-24">
       <section className="py-24 px-6 lg:px-8">
@@ -93,19 +132,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="rounded-lg overflow-hidden h-64 bg-muted">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.8716087557707!2d-118.39616!3d34.13907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDA4JzIwLjciTiAxMTjCsDIzJzQ2LjIiVw!5e0!3m2!1sen!2sus!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Studio Location"
-                  data-testid="map-location"
-                />
-              </div>
+
             </motion.div>
           </div>
         </div>

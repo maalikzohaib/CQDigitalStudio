@@ -1,106 +1,55 @@
-import { motion } from "motion/react";
+import { ContainerScroll, BentoGrid, BentoCell, ContainerScale } from "@/components/ui/hero-gallery-scroll-animation";
+import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { RainbowButton } from "@/components/ui/rainbow-button";
-import logoPath from "@assets/LOGO_1759990739353.png";
-import { ShaderAnimation } from "@/components/ui/shader-animation";
-import { CardStack } from "@/components/ui/card-stack";
+import weddingImage from "@assets/generated_images/Wedding_portfolio_sample_1f6f9bd5.png";
+import eventImage from "@assets/generated_images/Event_portfolio_sample_f4a5e768.png";
+import portraitImage from "@assets/generated_images/Portrait_portfolio_sample_63794526.png";
+import productImage from "@assets/generated_images/IMG_6487.jpg";
+import studioHeroImage from "@assets/generated_images/Studio_hero_background_f49db05f.png";
+import logoImage from "@assets/LOGO_1759990739353_backup.png";
 
 export default function Hero() {
+  const IMAGES = [
+    weddingImage,
+    eventImage,
+    portraitImage,
+    productImage,
+    studioHeroImage,
+  ];
+
   return (
-    <>
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Shader Animation Background */}
-        <div className="absolute inset-0 z-0">
-          <ShaderAnimation />
-        </div>
-        
-        {/* Content Layer */}
-        <motion.div
-          className="relative z-10 w-full px-6"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.88, delay: 1.5 }}
-        >
-          <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10">
-            <div className="flex w-full flex-col items-center space-y-12 text-center">
-              <motion.div
-                className="space-y-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.7 }}
-              >
-                <img
-                  src={logoPath}
-                  alt="CQ Digital Studio Logo"
-                  className="w-96 md:w-[28rem] lg:w-[36rem] h-auto"
-                  data-testid="img-hero-logo"
-                />
-              </motion.div>
+    <ContainerScroll className="h-[250vh] w-full" style={{ scrollBehavior: 'smooth' }}>
+      <BentoGrid className="sticky left-0 top-0 z-0 h-screen w-full p-4 will-change-transform">
+        {IMAGES.map((imageUrl, index) => (
+          <BentoCell
+            key={index}
+            className="overflow-hidden rounded-xl shadow-xl will-change-transform"
+          >
+            <img
+              className="size-full object-cover object-center"
+              src={imageUrl}
+              alt={`CQ Digital Studio Gallery ${index + 1}`}
+              loading="eager"
+            />
+          </BentoCell>
+        ))}
+      </BentoGrid>
 
-              <motion.div
-                className="flex flex-wrap gap-4 justify-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 2.3 }}
-              >
-                <Link href="/portfolio">
-                  <RainbowButton data-testid="button-view-portfolio">
-                    View Portfolio
-                  </RainbowButton>
-                </Link>
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-
-      <section className="w-full bg-background px-6 py-24">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 lg:flex-row lg:items-center">
-          <div className="flex-1 space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
-              What We Offer
-            </p>
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              Professional Photo & Video Services
-            </h2>
-            <div className="space-y-5">
-              {[
-                {
-                  title: "Professional Photo Shoots",
-                  description: "From weddings to fashion, events to product photography — we capture it all with perfection."
-                },
-                {
-                  title: "Cinematic Video Coverage",
-                  description: "High-quality videos, reels, and promos — fully edited and ready to share."
-                },
-                {
-                  title: "Studio Rental Space",
-                  description: "Modern indoor studio setup for your creative shoots."
-                },
-                {
-                  title: "Post-Production & Editing",
-                  description: "Color grading, photo retouching, cinematic edits, reels — all done in-house."
-                },
-                {
-                  title: "Social Media Ready Content",
-                  description: "Optimized content for Instagram, TikTok, and Facebook that grabs attention."
-                }
-              ].map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-2.5 w-2.5 flex-none rounded-full bg-amber-500" />
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="flex-1">
-            <CardStack className="mx-auto max-w-sm md:max-w-md" />
-          </div>
+      <ContainerScale className="relative z-10 text-center will-change-transform">
+        <img
+          src={logoImage}
+          alt="CQ Digital Studio Logo"
+          className="w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] h-auto mx-auto"
+          loading="eager"
+        />
+        <div className="flex items-center justify-center mt-8">
+          <Link href="/portfolio">
+            <Button className="px-6 py-3 font-medium">
+              View Portfolio
+            </Button>
+          </Link>
         </div>
-      </section>
-    </>
+      </ContainerScale>
+    </ContainerScroll>
   );
 }

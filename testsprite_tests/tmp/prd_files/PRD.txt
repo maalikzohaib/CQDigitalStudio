@@ -1,0 +1,131 @@
+📝 CQ Digital Studio – PRD (Product Requirements Document)
+🔹 Project Title
+
+CQ Digital Studio & Films – Portfolio Website
+
+🔹 Objective
+
+Create a high-quality, responsive portfolio website that highlights CQ Digital Studio’s photography & videography services, showcases their gallery, and builds trust with potential clients via testimonials and service descriptions.
+
+🔹 Target Audience
+
+Brides, couples, and families
+
+Corporate clients (brand managers, event producers)
+
+Social media influencers
+
+Creative agencies
+
+🔹 Platform Requirements
+
+Device Support: Fully responsive on mobile, tablet, and desktop
+
+Hosting: Can be deployed on Vercel or Netlify
+
+Tech Stack (suggested):
+
+Frontend: React.js + Tailwind CSS
+
+Optional CMS: Sanity / Strapi / Notion API
+
+Optional Backend: Supabase or Firebase for testimonials, inquiries
+
+🔹 Website Sections (As per uploaded image)
+1. Hero Section
+
+Logo animation or glow
+
+Call to Action: "View Portfolio"
+
+Social Icons: Instagram, Facebook, WhatsApp, YouTube, etc.
+
+2. What We Offer
+
+Short service breakdown with icons or bullets:
+
+📸 Professional Photo Shoots
+
+🎥 Cinematic Video Coverage
+
+🏢 Studio Rental Space
+
+✂️ Post-Production & Editing
+
+📱 Social Media Ready Content
+
+3. Gallery Section
+
+Grid-based layout of sample images
+
+Interactive hover effect or lightbox (optional)
+
+4. Why We Choose Us
+
+6 Benefit cards:
+
+✅ Professional Quality
+
+🎯 Customized Packages
+
+🧠 Creative Approach
+
+😊 Client Satisfaction
+
+⏱️ Timely Delivery
+
+5. Testimonials
+
+Scrolling or grid-based client testimonials with:
+
+Name
+
+Role (e.g., Bride, Creative Director)
+
+Feedback message
+
+6. Footer
+
+Quick Links: Home, About Us, Services, Portfolio, Packages, Contact
+
+Contact Info:
+
+Address
+
+Phone Number
+
+Email
+
+Social Links
+
+Copyright
+
+🔹 Functional Requirements
+
+Contact Form (Basic)
+
+Optionally Embed WhatsApp chat button
+
+Lightbox Gallery Viewer
+
+Sticky Navbar (optional)
+
+🔹 Optional Future Features
+
+Booking calendar
+
+Service quote generator
+
+CMS integration for easy image updates
+
+Blog section for SEO
+
+🔹 Design Requirements
+
+Theme: Black background, golden-orange brand accents
+
+Font Suggestion: Inter or Poppins
+
+Layout: Modern, clean, no clutter
+
+Highlight: Cinematic visuals & testimonials
