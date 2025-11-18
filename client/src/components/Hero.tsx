@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import weddingImage from "@assets/generated_images/Wedding_portfolio_sample_1f6f9bd5.png";
 import eventImage from "@assets/generated_images/Event_portfolio_sample_f4a5e768.png";
 import portraitImage from "@assets/generated_images/Portrait_portfolio_sample_63794526.png";
-import productImage from "@assets/generated_images/IMG_6487.jpg";
+import productImage from "@assets/generated_images/IMG_6487.JPG";
 import studioHeroImage from "@assets/generated_images/Studio_hero_background_f49db05f.png";
 import logoImage from "@assets/LOGO_1759990739353_backup.png";
 
