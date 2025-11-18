@@ -2,17 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes heroBlobA {
+  0%,
+  100% {
+    transform: translate3d(-5%, -5%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(8%, 10%, 0) scale(1.15);
+  }
+}
+
+@keyframes heroBlobB {
+  0%,
+  100% {
+    transform: translate3d(6%, -8%, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-10%, 12%, 0) scale(0.95);
+  }
+}
+
+@keyframes heroBlobC {
+  0%,
+  100% {
+    transform: translate3d(0, -10%, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(10%, 15%, 0) scale(0.9);
+  }
+}
+
 /* LIGHT MODE */
 :root {
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
 
   /* Rainbow button colors */
-  --color-1: 0 100% 63%;
-  --color-2: 270 100% 63%;
-  --color-3: 210 100% 63%;
-  --color-4: 195 100% 63%;
-  --color-5: 90 100% 63%;
+  --color-1: 46 100% 74%;
+  --color-2: 44 96% 68%;
+  --color-3: 49 92% 80%;
+  --color-4: 50 88% 86%;
+  --color-5: 42 88% 65%;
 
   /* Automatic computation of border around primary / danger buttons */
   --opaque-button-border-intensity: -8; /* In terms of percentages */
@@ -28,36 +58,36 @@
   --card-foreground: 32.11% 0 0;
   --popover: 100% 0 0;
   --popover-foreground: 32.11% 0 0;
-  --primary: 62.31% 0.188 259.8145;
-  --primary-foreground: 100% 0 0;
-  --secondary: 96.7% 0.0029 264.5419;
-  --secondary-foreground: 44.61% 0.0263 256.8018;
-  --muted: 98.46% 0.0017 247.8389;
-  --muted-foreground: 55.1% 0.0234 264.3637;
-  --accent: 95.14% 0.025 236.8242;
-  --accent-foreground: 37.91% 0.1378 265.5222;
+  --primary: 85% 0.2 85;
+  --primary-foreground: 26% 0.05 60;
+  --secondary: 98% 0.015 95;
+  --secondary-foreground: 34% 0.05 60;
+  --muted: 99% 0.01 96;
+  --muted-foreground: 52% 0.018 68;
+  --accent: 90% 0.22 85;
+  --accent-foreground: 28% 0.05 58;
   --destructive: 63.68% 0.2078 25.3313;
   --destructive-foreground: 100% 0 0;
-  --border: 92.76% 0.0058 264.5313;
-  --input: 92.76% 0.0058 264.5313;
-  --ring: 62.31% 0.188 259.8145;
-  --chart-1: 62.31% 0.188 259.8145;
-  --chart-2: 54.61% 0.2152 262.8809;
-  --chart-3: 48.82% 0.2172 264.3763;
-  --chart-4: 42.44% 0.1809 265.6377;
-  --chart-5: 37.91% 0.1378 265.5222;
-  --sidebar: 98.46% 0.0017 247.8389;
+  --border: 95% 0.03 88;
+  --input: 95% 0.03 88;
+  --ring: 85% 0.2 85;
+  --chart-1: 85% 0.2 85;
+  --chart-2: 76% 0.22 80;
+  --chart-3: 66% 0.22 75;
+  --chart-4: 55% 0.2 70;
+  --chart-5: 46% 0.18 65;
+  --sidebar: 99% 0.01 95;
   --sidebar-foreground: 32.11% 0 0;
-  --sidebar-primary: 62.31% 0.188 259.8145;
-  --sidebar-primary-foreground: 100% 0 0;
-  --sidebar-accent: 95.14% 0.025 236.8242;
-  --sidebar-accent-foreground: 37.91% 0.1378 265.5222;
-  --sidebar-border: 92.76% 0.0058 264.5313;
-  --sidebar-ring: 62.31% 0.188 259.8145;
+  --sidebar-primary: 85% 0.2 85;
+  --sidebar-primary-foreground: 26% 0.05 60;
+  --sidebar-accent: 90% 0.22 85;
+  --sidebar-accent-foreground: 28% 0.05 58;
+  --sidebar-border: 95% 0.03 88;
+  --sidebar-ring: 85% 0.2 85;
   
   /* Card border using the border color */
-  --card-border: 92.76% 0.0058 264.5313;
-  --popover-border: 92.76% 0.0058 264.5313;
+  --card-border: 95% 0.03 88;
+  --popover-border: 95% 0.03 88;
 
   --font-sans: Inter, sans-serif;
   --font-serif: Source Serif 4, serif;
@@ -116,38 +146,38 @@
   --elevate-2: rgba(255,255,255, .09);
 
   /* Modern minimal dark theme using OKLCH colors */
-  --background: 20.46% 0 0;
+  --background: 5% 0 0;
   --foreground: 92.19% 0 0;
-  --card: 26.86% 0 0;
+  --card: 8% 0 0;
   --card-foreground: 92.19% 0 0;
-  --popover: 26.86% 0 0;
+  --popover: 8% 0 0;
   --popover-foreground: 92.19% 0 0;
-  --primary: 62.31% 0.188 259.8145;
-  --primary-foreground: 100% 0 0;
-  --secondary: 26.86% 0 0;
+  --primary: 85% 0.2 85;
+  --primary-foreground: 12% 0.04 58;
+  --secondary: 10% 0 0;
   --secondary-foreground: 92.19% 0 0;
-  --muted: 23.93% 0 0;
+  --muted: 8% 0 0;
   --muted-foreground: 71.55% 0 0;
-  --accent: 37.91% 0.1378 265.5222;
-  --accent-foreground: 88.23% 0.0571 254.1284;
+  --accent: 72% 0.18 82;
+  --accent-foreground: 10% 0.03 55;
   --destructive: 63.68% 0.2078 25.3313;
   --destructive-foreground: 100% 0 0;
   --border: 37.15% 0 0;
   --input: 37.15% 0 0;
-  --ring: 62.31% 0.188 259.8145;
-  --chart-1: 71.37% 0.1434 254.624;
-  --chart-2: 62.31% 0.188 259.8145;
-  --chart-3: 54.61% 0.2152 262.8809;
-  --chart-4: 48.82% 0.2172 264.3763;
-  --chart-5: 42.44% 0.1809 265.6377;
-  --sidebar: 20.46% 0 0;
+  --ring: 85% 0.2 85;
+  --chart-1: 85% 0.2 85;
+  --chart-2: 76% 0.22 80;
+  --chart-3: 66% 0.22 75;
+  --chart-4: 55% 0.2 70;
+  --chart-5: 46% 0.18 65;
+  --sidebar: 5% 0 0;
   --sidebar-foreground: 92.19% 0 0;
-  --sidebar-primary: 62.31% 0.188 259.8145;
-  --sidebar-primary-foreground: 100% 0 0;
-  --sidebar-accent: 37.91% 0.1378 265.5222;
-  --sidebar-accent-foreground: 88.23% 0.0571 254.1284;
+  --sidebar-primary: 85% 0.2 85;
+  --sidebar-primary-foreground: 12% 0.04 58;
+  --sidebar-accent: 72% 0.18 82;
+  --sidebar-accent-foreground: 12% 0.04 58;
   --sidebar-border: 37.15% 0 0;
-  --sidebar-ring: 62.31% 0.188 259.8145;
+  --sidebar-ring: 85% 0.2 85;
   
   /* Card and popover borders using the border color */
   --card-border: 37.15% 0 0;
