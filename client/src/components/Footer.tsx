@@ -7,7 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Facebook, Instagram, Youtube, Send, Twitter } from "lucide-react";
+import { Facebook, Instagram, Send, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
 import logo from "@assets/LOGO_1759990739353.png";
 
@@ -29,9 +29,6 @@ export default function Footer() {
               </Link>
               <Link href="/about" className="block transition-colors hover:text-primary">
                 About Us
-              </Link>
-              <Link href="/services" className="block transition-colors hover:text-primary">
-                Services
               </Link>
               <Link href="/portfolio" className="block transition-colors hover:text-primary">
                 Portfolio
@@ -64,7 +61,7 @@ export default function Footer() {
                       variant="outline"
                       size="icon"
                       className="rounded-full"
-                      onClick={() => window.open('https://facebook.com', '_blank')}
+                      onClick={() => window.open('https://www.facebook.com/share/1B6ZCyqPHB/', '_blank')}
                       data-testid="button-social-facebook"
                     >
                       <Facebook className="h-4 w-4" />
@@ -83,15 +80,15 @@ export default function Footer() {
                       variant="outline"
                       size="icon"
                       className="rounded-full"
-                      onClick={() => window.open('https://twitter.com', '_blank')}
-                      data-testid="button-social-twitter"
+                      onClick={() => window.open('https://wa.me/c/164759341158410', '_blank')}
+                      data-testid="button-social-whatsapp"
                     >
-                      <Twitter className="h-4 w-4" />
-                      <span className="sr-only">Twitter</span>
+                      <MessageCircle className="h-4 w-4" />
+                      <span className="sr-only">WhatsApp Catalog</span>
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Follow us on Twitter</p>
+                    <p>View our WhatsApp Catalog</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
@@ -102,7 +99,7 @@ export default function Footer() {
                       variant="outline"
                       size="icon"
                       className="rounded-full"
-                      onClick={() => window.open('https://instagram.com', '_blank')}
+                      onClick={() => window.open('https://www.instagram.com/cqdigitalstudio?igsh=ajJqNHJheHdiNXNm', '_blank')}
                       data-testid="button-social-instagram"
                     >
                       <Instagram className="h-4 w-4" />
@@ -111,25 +108,6 @@ export default function Footer() {
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>Follow us on Instagram</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="rounded-full"
-                      onClick={() => window.open('https://youtube.com', '_blank')}
-                      data-testid="button-social-youtube"
-                    >
-                      <Youtube className="h-4 w-4" />
-                      <span className="sr-only">YouTube</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Watch our videos on YouTube</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>

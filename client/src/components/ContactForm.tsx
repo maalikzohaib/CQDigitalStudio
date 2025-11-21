@@ -13,7 +13,7 @@ import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/s
 export default function ContactForm() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
-  
+
   const form = useForm<InsertContactInquiry>({
     resolver: zodResolver(insertContactInquirySchema),
     defaultValues: {
@@ -133,9 +133,9 @@ export default function ContactForm() {
             )}
           />
 
-          <Button 
-            type="submit" 
-            className="w-full" 
+          <Button
+            type="submit"
+            className="w-full"
             disabled={submitMutation.isPending}
             data-testid="button-submit"
           >

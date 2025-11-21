@@ -5,10 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   IconHome,
   IconInfoCircle,
-  IconBriefcase,
   IconPhoto,
   IconPackage,
-  IconStars,
   IconMail,
 } from "@tabler/icons-react";
 
@@ -31,13 +29,6 @@ export default function Navbar() {
       href: "/about",
     },
     {
-      title: "Services",
-      icon: (
-        <IconBriefcase className="h-full w-full text-foreground" />
-      ),
-      href: "/services",
-    },
-    {
       title: "Portfolio",
       icon: (
         <IconPhoto className="h-full w-full text-foreground" />
@@ -50,13 +41,6 @@ export default function Navbar() {
         <IconPackage className="h-full w-full text-foreground" />
       ),
       href: "/packages",
-    },
-    {
-      title: "Testimonials",
-      icon: (
-        <IconStars className="h-full w-full text-foreground" />
-      ),
-      href: "/testimonials",
     },
     {
       title: "Contact",

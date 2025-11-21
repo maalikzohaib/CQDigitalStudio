@@ -3,30 +3,36 @@
 @tailwind utilities;
 
 @keyframes heroBlobA {
+
   0%,
   100% {
     transform: translate3d(-5%, -5%, 0) scale(1);
   }
+
   50% {
     transform: translate3d(8%, 10%, 0) scale(1.15);
   }
 }
 
 @keyframes heroBlobB {
+
   0%,
   100% {
     transform: translate3d(6%, -8%, 0) scale(1.05);
   }
+
   50% {
     transform: translate3d(-10%, 12%, 0) scale(0.95);
   }
 }
 
 @keyframes heroBlobC {
+
   0%,
   100% {
     transform: translate3d(0, -10%, 0) scale(1.05);
   }
+
   50% {
     transform: translate3d(10%, 15%, 0) scale(0.9);
   }
@@ -35,8 +41,8 @@
 /* LIGHT MODE */
 :root {
   scroll-behavior: smooth;
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
+  --button-outline: rgba(0, 0, 0, .10);
+  --badge-outline: rgba(0, 0, 0, .05);
 
   /* Rainbow button colors */
   --color-1: 46 100% 74%;
@@ -46,11 +52,12 @@
   --color-5: 42 88% 65%;
 
   /* Automatic computation of border around primary / danger buttons */
-  --opaque-button-border-intensity: -8; /* In terms of percentages */
+  --opaque-button-border-intensity: -8;
+  /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
+  --elevate-1: rgba(0, 0, 0, .03);
+  --elevate-2: rgba(0, 0, 0, .08);
 
   /* Modern minimal theme using OKLCH colors */
   --background: 100% 0 0;
@@ -85,7 +92,7 @@
   --sidebar-accent-foreground: 98% 0 0;
   --sidebar-border: 95% 0.03 88;
   --sidebar-ring: 58% 0.22 270;
-  
+
   /* Card border using the border color */
   --card-border: 95% 0.03 88;
   --popover-border: 95% 0.03 88;
@@ -137,14 +144,14 @@
 }
 
 .dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
+  --button-outline: rgba(255, 255, 255, .10);
+  --badge-outline: rgba(255, 255, 255, .05);
 
   --opaque-button-border-intensity: 9;
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
+  --elevate-1: rgba(255, 255, 255, .04);
+  --elevate-2: rgba(255, 255, 255, .09);
 
   /* Modern minimal dark theme using OKLCH colors */
   --background: 5% 0 0;
@@ -179,7 +186,7 @@
   --sidebar-accent-foreground: 98% 0 0;
   --sidebar-border: 37.15% 0 0;
   --sidebar-ring: 58% 0.22 270;
-  
+
   /* Card and popover borders using the border color */
   --card-border: 37.15% 0 0;
   --popover-border: 37.15% 0 0;
