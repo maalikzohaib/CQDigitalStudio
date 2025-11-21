@@ -1,5 +1,5 @@
 import { ContainerScroll, BentoGrid, BentoCell, ContainerScale } from "@/components/ui/hero-gallery-scroll-animation";
-import { Button } from "@/components/ui/button";
+import { SlideInButton } from "@/components/ui/SlideInButton";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import weddingImage from "@assets/generated_images/Wedding_portfolio_sample_1f6f9bd5.png";
@@ -11,7 +11,7 @@ import logoImage from "@assets/LOGO_1759990739353_backup.png";
 
 export default function Hero() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
-  
+
   const IMAGES = [
     weddingImage,
     eventImage,
@@ -19,7 +19,7 @@ export default function Hero() {
     productImage,
     studioHeroImage,
   ];
-  
+
   useEffect(() => {
     const preloadImages = async () => {
       const promises = IMAGES.slice(0, 2).map((src) => {
@@ -67,9 +67,9 @@ export default function Hero() {
         />
         <div className="flex items-center justify-center mt-8">
           <Link href="/portfolio">
-            <Button className="px-6 py-3 font-medium">
+            <SlideInButton className="px-6 py-3 font-medium">
               View Portfolio
-            </Button>
+            </SlideInButton>
           </Link>
         </div>
       </ContainerScale>

@@ -1,5 +1,5 @@
 import { Check } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { SlideInButton } from '@/components/ui/SlideInButton';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
@@ -152,14 +152,12 @@ export const PricingPlans = ({
               </CardContent>
 
               <CardFooter>
-                <Button
-                  variant={plan.buttonVariant || 'default'}
+                <SlideInButton
                   className="w-full"
-                  size="lg"
                   onClick={() => handleGetStarted(plan.name)}
                 >
                   {plan.buttonText}
-                </Button>
+                </SlideInButton>
               </CardFooter>
             </Card>
           ))}

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Button } from "@/components/ui/button";
+import { SlideInButton } from "@/components/ui/SlideInButton";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
@@ -133,14 +133,14 @@ export default function ContactForm() {
             )}
           />
 
-          <Button
+          <SlideInButton
             type="submit"
             className="w-full"
             disabled={submitMutation.isPending}
             data-testid="button-submit"
           >
             {submitMutation.isPending ? "Sending..." : "Send Message"}
-          </Button>
+          </SlideInButton>
         </form>
       </Form>
     </Card>
