@@ -39,13 +39,10 @@ function Router() {
   );
 }
 
-import SplashScreen from "@/components/SplashScreen";
-
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <SplashScreen />
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-1">
