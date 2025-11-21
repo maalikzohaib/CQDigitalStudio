@@ -11,6 +11,9 @@ import Portfolio from "@/pages/Portfolio";
 import Packages from "@/pages/Packages";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
+import CookieSettings from "@/pages/CookieSettings";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
 
@@ -32,6 +35,9 @@ function Router() {
           <Route path="/portfolio" component={Portfolio} />
           <Route path="/packages" component={Packages} />
           <Route path="/contact" component={Contact} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/terms-of-service" component={TermsOfService} />
+          <Route path="/cookie-settings" component={CookieSettings} />
           <Route component={NotFound} />
         </Switch>
       </motion.div>

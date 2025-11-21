@@ -122,15 +122,15 @@ export default function Footer() {
             © {currentYear} CQ Digital Studio. All rights reserved.
           </p>
           <nav className="flex gap-4 text-sm">
-            <a href="#" className="transition-colors hover:text-primary">
+            <Link href="/privacy-policy" className="transition-colors hover:text-primary">
               Privacy Policy
-            </a>
-            <a href="#" className="transition-colors hover:text-primary">
+            </Link>
+            <Link href="/terms-of-service" className="transition-colors hover:text-primary">
               Terms of Service
-            </a>
-            <a href="#" className="transition-colors hover:text-primary">
+            </Link>
+            <Link href="/cookie-settings" className="transition-colors hover:text-primary">
               Cookie Settings
-            </a>
+            </Link>
           </nav>
         </div>
       </div>
