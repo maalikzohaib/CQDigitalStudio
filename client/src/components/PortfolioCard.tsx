@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface PortfolioCardProps {
   image: string;
@@ -20,6 +20,30 @@ export default function PortfolioCard({
   index = 0
 }: PortfolioCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoSrc, setVideoSrc] = useState<string>("");
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isVideo || !containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVideoSrc(image);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isVideo, image]);
 
   const handleMouseEnter = () => {
     if (videoRef.current) {
@@ -38,6 +62,7 @@ export default function PortfolioCard({
 
   return (
     <motion.div
+      ref={containerRef}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -48,11 +73,11 @@ export default function PortfolioCard({
       onMouseLeave={isVideo ? handleMouseLeave : undefined}
       data-testid={`card-portfolio-${title.toLowerCase().replace(/\s+/g, '-')}`}
     >
-      <div className="aspect-[4/3] overflow-hidden relative">
+      <div className="aspect-[4/3] overflow-hidden relative bg-muted/20">
         {isVideo ? (
           <video
             ref={videoRef}
-            src={image}
+            src={videoSrc}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             muted
             loop
@@ -63,6 +88,8 @@ export default function PortfolioCard({
           <img
             src={image}
             alt={title}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         )}

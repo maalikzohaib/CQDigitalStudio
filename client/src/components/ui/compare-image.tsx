@@ -52,10 +52,10 @@ export function CompareImage({
 
   const updatePosition = useCallback((clientX: number) => {
     if (!containerRef.current) return;
-    
+
     window.requestAnimationFrame(() => {
       if (!containerRef.current) return;
-      
+
       const rect = containerRef.current.getBoundingClientRect();
       const containerLeft = rect.left;
       const position = ((clientX - containerLeft) / rect.width) * 100;
@@ -91,7 +91,7 @@ export function CompareImage({
     const handleGlobalMouseUp = () => setIsDragging(false);
     window.addEventListener("mouseup", handleGlobalMouseUp);
     window.addEventListener("touchend", handleGlobalMouseUp);
-    
+
     return () => {
       window.removeEventListener("mouseup", handleGlobalMouseUp);
       window.removeEventListener("touchend", handleGlobalMouseUp);
@@ -116,6 +116,8 @@ export function CompareImage({
       <img
         src={src}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         style={{
           width: "100%",
           height: "100%",
