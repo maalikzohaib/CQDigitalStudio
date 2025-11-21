@@ -2,22 +2,58 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import { copyFileSync, mkdirSync, readdirSync, statSync } from "fs";
+
+// Plugin to copy portfolio images to build output
+function copyPortfolioImages() {
+  return {
+    name: 'copy-portfolio-images',
+    closeBundle() {
+      const sourceDir = path.resolve(import.meta.dirname, 'attached_assets', 'Portfolio Images');
+      const targetDir = path.resolve(import.meta.dirname, 'dist/public/assets/portfolio');
+
+      const copyRecursive = (src: string, dest: string) => {
+        try {
+          mkdirSync(dest, { recursive: true });
+          const entries = readdirSync(src, { withFileTypes: true });
+
+          for (const entry of entries) {
+            const srcPath = path.join(src, entry.name);
+            const destPath = path.join(dest, entry.name);
+
+            if (entry.isDirectory()) {
+              copyRecursive(srcPath, destPath);
+            } else if (entry.isFile()) {
+              copyFileSync(srcPath, destPath);
+            }
+          }
+        } catch (err) {
+          console.error(`Error copying portfolio images: ${err}`);
+        }
+      };
+
+      copyRecursive(sourceDir, targetDir);
+      console.log('✓ Portfolio images copied to build output');
+    }
+  };
+}
 
 export default defineConfig({
-  assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.PNG'],
+  assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.PNG', '**/*.mp4', '**/*.webm', '**/*.ogg', '**/*.mov'],
   plugins: [
     react(),
     runtimeErrorOverlay(),
+    copyPortfolioImages(),
     ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
+      process.env.REPL_ID !== undefined
       ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
-          ),
-          await import("@replit/vite-plugin-dev-banner").then((m) =>
-            m.devBanner(),
-          ),
-        ]
+        await import("@replit/vite-plugin-cartographer").then((m) =>
+          m.cartographer(),
+        ),
+        await import("@replit/vite-plugin-dev-banner").then((m) =>
+          m.devBanner(),
+        ),
+      ]
       : []),
   ],
   resolve: {

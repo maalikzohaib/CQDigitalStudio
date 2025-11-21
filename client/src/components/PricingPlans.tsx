@@ -27,48 +27,48 @@ interface PricingPlansProps {
 
 const defaultPlans: Plan[] = [
   {
-    name: 'Starter',
-    description: 'Perfect for small events & basic wedding coverage',
-    price: 'PKR 15,000',
-    period: '/ event',
+    name: 'Essential Shoot',
+    description: 'Perfect for small events & basic coverage',
+    price: 'PKR 25,000',
+    period: '/ day',
     buttonText: 'Get Started',
     buttonVariant: 'outline',
     features: [
-      { text: '1-Day Booking', included: true },
-      { text: 'Standard Photography', included: true },
-      { text: 'Basic Video Highlights', included: true },
-      { text: 'Basic Drone Shots', included: true },
+      { text: '1 Video Camera', included: true },
+      { text: '1 Photo Camera', included: true },
+      { text: '1 Album', included: true },
+      { text: 'Drone (Optional: +5,000)', included: true },
     ],
   },
   {
-    name: 'Professional',
-    description: 'Ideal for full wedding events & premium coverage',
-    price: 'PKR 60,000',
-    period: '/ event',
+    name: 'Premium Coverage',
+    description: 'Ideal for full events & premium production',
+    price: 'PKR 45,000',
+    period: '/ day',
     popular: true,
     buttonText: 'Get Started',
     buttonVariant: 'default',
     features: [
-      { text: 'Full-Day Booking', included: true },
-      { text: 'Professional Photo + Cinematic Video', included: true },
-      { text: 'Advanced Drone Drone Coverage', included: true },
-      { text: 'Couple Shoot + Family Shoot', included: true },
-      { text: 'Complete Event Coverage', included: true },
+      { text: '2 Video Cameras', included: true },
+      { text: '2 Photo Cameras', included: true },
+      { text: '1 Album', included: true },
+      { text: 'Drone Included', included: true },
     ],
   },
   {
-    name: 'Enterprise',
-    description: 'For large weddings, multi-day events, or custom requirements',
+    name: 'Custom Production',
+    description: 'Build your own custom package with unlimited options',
     price: '',
     period: '',
     buttonText: 'Contact Sales',
     buttonVariant: 'outline',
     features: [
-      { text: 'Unlimited Event Days', included: true },
-      { text: 'Full Production Team', included: true },
-      { text: 'Premium Drone Coverage', included: true },
-      { text: 'Album + Documentary Edit', included: true },
-      { text: 'Anything Extra You Need', included: true },
+      { text: 'Unlimited Video Cameras', included: true },
+      { text: 'Unlimited Photo Cameras', included: true },
+      { text: 'Multiple Albums', included: true },
+      { text: 'DSLR or Sony/Mirrorless Setups', included: true },
+      { text: 'Drone Coverage Available', included: true },
+      { text: 'Fully Customizable Based on Event Size', included: true },
     ],
   },
 ];
@@ -90,11 +90,10 @@ export const PricingPlans = ({
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`relative flex flex-col ${
-                plan.popular
-                  ? 'border-primary shadow-lg scale-105 lg:scale-110'
-                  : 'border-border'
-              }`}
+              className={`relative flex flex-col ${plan.popular
+                ? 'border-primary shadow-lg scale-105 lg:scale-110'
+                : 'border-border'
+                }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -125,20 +124,18 @@ export const PricingPlans = ({
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
                       <div
-                        className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 ${
-                          feature.included
-                            ? 'bg-primary/10 text-primary'
-                            : 'bg-muted text-muted-foreground'
-                        }`}
+                        className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 ${feature.included
+                          ? 'bg-primary/10 text-primary'
+                          : 'bg-muted text-muted-foreground'
+                          }`}
                       >
                         <Check className="w-3 h-3" />
                       </div>
                       <span
-                        className={`text-sm ${
-                          feature.included
-                            ? 'text-foreground'
-                            : 'text-muted-foreground line-through'
-                        }`}
+                        className={`text-sm ${feature.included
+                          ? 'text-foreground'
+                          : 'text-muted-foreground line-through'
+                          }`}
                       >
                         {feature.text}
                       </span>
@@ -162,7 +159,7 @@ export const PricingPlans = ({
 
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground">
-            All plans are customizable. Contact us to discuss your specific requirements.
+            All plans are customizable. Contact us for specific requirements.
           </p>
         </div>
       </div>

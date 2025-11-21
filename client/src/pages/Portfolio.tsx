@@ -19,7 +19,7 @@ export default function Portfolio() {
   const [dynamicItems, setDynamicItems] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch('/api/portfolio-images')
+    fetch('/portfolio-data.json')
       .then(res => res.json())
       .then(data => {
         if (data.success) {
