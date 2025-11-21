@@ -9,11 +9,11 @@ interface ZoomImageProps {
   zoomScale?: number;
 }
 
-export default function ZoomImage({ 
-  src, 
-  alt, 
-  className = "", 
-  zoomScale = 1.5 
+export default function ZoomImage({
+  src,
+  alt,
+  className = "",
+  zoomScale = 1.5
 }: ZoomImageProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -56,19 +56,19 @@ export default function ZoomImage({
             </button>
 
             <motion.div
-              initial={{ 
+              initial={{
                 scale: 0.5,
                 opacity: 0,
               }}
-              animate={{ 
+              animate={{
                 scale: 1,
                 opacity: 1,
               }}
-              exit={{ 
+              exit={{
                 scale: 0.5,
                 opacity: 0,
               }}
-              transition={{ 
+              transition={{
                 duration: 0.3,
                 ease: "easeOut"
               }}
@@ -84,7 +84,7 @@ export default function ZoomImage({
                 }}
                 initial={{ scale: 1 }}
                 whileHover={{ scale: zoomScale }}
-                transition={{ 
+                transition={{
                   duration: 0.3,
                   ease: "easeInOut"
                 }}

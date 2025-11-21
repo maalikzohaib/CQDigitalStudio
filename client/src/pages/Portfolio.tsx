@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PortfolioCard from "@/components/PortfolioCard";
 import FilterTabs from "@/components/FilterTabs";
@@ -11,33 +11,28 @@ import portraitImage from "@assets/generated_images/Portrait_portfolio_sample_63
 import productImage from "@assets/generated_images/Product_portfolio_sample_6fc4bba1.png";
 
 // Import new images
-const photographyImages = import.meta.glob('../../../attached_assets/Portfolio Images/*.{jpg,jpeg,png,JPG,JPEG,PNG}', { eager: true, import: 'default' });
-const productShootImages = import.meta.glob('../../../attached_assets/Portfolio Images/Product Shoots/*.{jpg,jpeg,png,JPG,JPEG,PNG}', { eager: true, import: 'default' });
+// Removed import.meta.glob as we now fetch from API
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [dynamicItems, setDynamicItems] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetch('/api/portfolio-images')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          setDynamicItems(data.data);
+        }
+      })
+      .catch(err => console.error("Failed to load portfolio images", err));
+  }, []);
 
   const categories = ["All", "Photography", "Videography", "Product Shoots"];
 
-  const newPhotographyItems = Object.values(photographyImages).map((img: any, index) => ({
-    image: img,
-    title: `Portfolio Shoot ${index + 1}`,
-    category: "Photography",
-    type: "Portrait"
-  }));
-
-  const newProductItems = Object.values(productShootImages).map((img: any, index) => ({
-    image: img,
-    title: `Product Shoot ${index + 1}`,
-    category: "Product Shoots",
-    type: "Product"
-  }));
-
   const portfolioItems = [
-    { image: weddingImage, title: "Emma & James Wedding Film", category: "Videography", type: "Wedding", isVideo: true },
-    ...newPhotographyItems,
-    ...newProductItems
+    ...dynamicItems
   ];
 
   const filteredItems = activeCategory === "All"
@@ -108,11 +103,21 @@ export default function Portfolio() {
                 >
                   <X className="w-6 h-6" />
                 </button>
-                <img
-                  src={selectedItem.image}
-                  alt={selectedItem.title}
-                  className="w-full h-full object-contain"
-                />
+                {selectedItem.isVideo ? (
+                  <video
+                    src={selectedItem.image}
+                    className="w-full h-full object-contain"
+                    controls
+                    autoPlay
+                    loop
+                  />
+                ) : (
+                  <img
+                    src={selectedItem.image}
+                    alt={selectedItem.title}
+                    className="w-full h-full object-contain"
+                  />
+                )}
               </div>
               <div className="w-full md:w-1/3 p-8 flex flex-col justify-center border-l border-border/50">
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary w-fit mb-4">
