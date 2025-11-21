@@ -92,44 +92,58 @@ export default function Portfolio() {
       </section>
 
       <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
-        <DialogContent className="max-w-6xl p-0 bg-background/95 backdrop-blur-xl border-border/50 shadow-2xl overflow-hidden">
+        <DialogContent className="max-w-[95vw] h-[90vh] p-0 bg-transparent border-none shadow-none focus:outline-none">
           {selectedItem && (
-            <div className="flex flex-col md:flex-row h-[80vh] md:h-[600px]">
-              <div className="w-full md:w-2/3 bg-black/5 relative flex items-center justify-center overflow-hidden">
-                <button
-                  onClick={() => setSelectedItem(null)}
-                  className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors"
-                  data-testid="button-close-lightbox"
-                >
-                  <X className="w-6 h-6" />
-                </button>
+            <div className="relative w-full h-full flex items-center justify-center bg-black/95 rounded-2xl overflow-hidden ring-1 ring-white/10">
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedItem(null)}
+                className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/10 transition-all duration-300 hover:scale-110 group"
+                data-testid="button-close-lightbox"
+              >
+                <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
+              </button>
+
+              {/* Media Container */}
+              <div className="w-full h-full flex items-center justify-center p-4 md:p-12">
                 {selectedItem.isVideo ? (
                   <video
                     src={selectedItem.image}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain max-h-[85vh] rounded-lg shadow-2xl"
                     controls
                     autoPlay
                     loop
+                    playsInline
                   />
                 ) : (
                   <img
                     src={selectedItem.image}
                     alt={selectedItem.title}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain max-h-[85vh] rounded-lg shadow-2xl"
                   />
                 )}
               </div>
-              <div className="w-full md:w-1/3 p-8 flex flex-col justify-center border-l border-border/50">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary w-fit mb-4">
-                  {selectedItem.category}
-                </span>
-                <h3 className="text-3xl font-display font-bold mb-4">{selectedItem.title}</h3>
-                <p className="text-muted-foreground mb-6">{selectedItem.type}</p>
-                <div className="mt-auto pt-6 border-t border-border/50">
-                  <p className="text-sm text-muted-foreground">
-                    Captured with precision and passion. Contact us to book your session.
+
+              {/* Content Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 bg-gradient-to-t from-black via-black/60 to-transparent text-white pointer-events-none">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="max-w-4xl mx-auto text-center md:text-left"
+                >
+                  <div className="flex flex-col md:flex-row items-center md:items-end gap-4 mb-2">
+                    <h3 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+                      {selectedItem.title}
+                    </h3>
+                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/20 text-white backdrop-blur-md border border-white/10 mb-1.5">
+                      {selectedItem.category}
+                    </span>
+                  </div>
+                  <p className="text-white/70 text-lg max-w-2xl">
+                    {selectedItem.type}
                   </p>
-                </div>
+                </motion.div>
               </div>
             </div>
           )}
