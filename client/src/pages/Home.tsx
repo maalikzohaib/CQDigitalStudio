@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
 import { ServicesSlideshow } from "@/components/ServicesSlideshow";
 import { PricingPlans } from "@/components/PricingPlans";
+import { BeforeAfterShowcase } from "@/components/BeforeAfterShowcase";
 
 export default function Home() {
   useScrollAnimation();
@@ -14,6 +15,8 @@ export default function Home() {
       <Hero />
       
       <ServicesSlideshow />
+
+      <BeforeAfterShowcase />
 
       <section className="relative">
         <motion.div
