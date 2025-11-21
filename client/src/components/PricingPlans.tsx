@@ -78,6 +78,13 @@ export const PricingPlans = ({
   title = 'Choose Your Plan',
   subtitle = 'Select the perfect plan for your needs. Upgrade or downgrade at any time.',
 }: PricingPlansProps) => {
+  const handleGetStarted = (planName: string) => {
+    const phoneNumber = '923004266312'; // WhatsApp number without + or spaces
+    const message = encodeURIComponent(`Hi! I'm interested in the ${planName} plan. Can you provide more details?`);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <div className="w-full bg-background py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -91,8 +98,8 @@ export const PricingPlans = ({
             <Card
               key={index}
               className={`relative flex flex-col ${plan.popular
-                ? 'border-primary shadow-lg scale-105 lg:scale-110'
-                : 'border-border'
+                  ? 'border-primary shadow-lg scale-105 lg:scale-110'
+                  : 'border-border'
                 }`}
             >
               {plan.popular && (
@@ -125,16 +132,16 @@ export const PricingPlans = ({
                     <li key={featureIndex} className="flex items-start">
                       <div
                         className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 ${feature.included
-                          ? 'bg-primary/10 text-primary'
-                          : 'bg-muted text-muted-foreground'
+                            ? 'bg-primary/10 text-primary'
+                            : 'bg-muted text-muted-foreground'
                           }`}
                       >
                         <Check className="w-3 h-3" />
                       </div>
                       <span
                         className={`text-sm ${feature.included
-                          ? 'text-foreground'
-                          : 'text-muted-foreground line-through'
+                            ? 'text-foreground'
+                            : 'text-muted-foreground line-through'
                           }`}
                       >
                         {feature.text}
@@ -149,6 +156,7 @@ export const PricingPlans = ({
                   variant={plan.buttonVariant || 'default'}
                   className="w-full"
                   size="lg"
+                  onClick={() => handleGetStarted(plan.name)}
                 >
                   {plan.buttonText}
                 </Button>

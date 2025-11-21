@@ -86,8 +86,8 @@ export default function Contact() {
                     <div>
                       <p className="font-medium mb-1">Address</p>
                       <p className="text-sm text-muted-foreground" data-testid="text-contact-address">
-                        123 Creative Ave<br />
-                        Studio City, CA 90210
+                        Bhatta Chowk Bedian Road<br />
+                        Lahore, Pakistan
                       </p>
                     </div>
                   </div>
@@ -99,7 +99,7 @@ export default function Contact() {
                     <div>
                       <p className="font-medium mb-1">Phone</p>
                       <p className="text-sm text-muted-foreground" data-testid="text-contact-phone">
-                        +1 (555) 123-4567
+                        +92 300 4266312
                       </p>
                     </div>
                   </div>
@@ -111,7 +111,7 @@ export default function Contact() {
                     <div>
                       <p className="font-medium mb-1">Email</p>
                       <p className="text-sm text-muted-foreground" data-testid="text-contact-email">
-                        contact@cqdigital.studio
+                        cqdigitelstudio@gmail.com
                       </p>
                     </div>
                   </div>

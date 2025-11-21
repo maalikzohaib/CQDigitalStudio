@@ -13,7 +13,7 @@ import logo from "@assets/LOGO_1759990739353.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300 mt-24">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
@@ -48,10 +48,10 @@ export default function Footer() {
             <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
             <address className="space-y-2 text-sm not-italic">
               <p>CQ Digital Studio</p>
-              <p>123 Creative Ave</p>
-              <p>Studio City, CA 90210</p>
-              <p>Phone: (555) 123-4567</p>
-              <p>Email: contact@cqdigital.studio</p>
+              <p>Bhatta Chowk Bedian Road</p>
+              <p>Lahore, Pakistan</p>
+              <p>Phone: +92 300 4266312</p>
+              <p>Email: cqdigitelstudio@gmail.com</p>
             </address>
           </div>
           <div className="relative">
@@ -60,9 +60,9 @@ export default function Footer() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button 
-                      variant="outline" 
-                      size="icon" 
+                    <Button
+                      variant="outline"
+                      size="icon"
                       className="rounded-full"
                       onClick={() => window.open('https://facebook.com', '_blank')}
                       data-testid="button-social-facebook"
@@ -79,9 +79,9 @@ export default function Footer() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button 
-                      variant="outline" 
-                      size="icon" 
+                    <Button
+                      variant="outline"
+                      size="icon"
                       className="rounded-full"
                       onClick={() => window.open('https://twitter.com', '_blank')}
                       data-testid="button-social-twitter"
@@ -98,9 +98,9 @@ export default function Footer() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button 
-                      variant="outline" 
-                      size="icon" 
+                    <Button
+                      variant="outline"
+                      size="icon"
                       className="rounded-full"
                       onClick={() => window.open('https://instagram.com', '_blank')}
                       data-testid="button-social-instagram"
@@ -117,9 +117,9 @@ export default function Footer() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button 
-                      variant="outline" 
-                      size="icon" 
+                    <Button
+                      variant="outline"
+                      size="icon"
                       className="rounded-full"
                       onClick={() => window.open('https://youtube.com', '_blank')}
                       data-testid="button-social-youtube"
