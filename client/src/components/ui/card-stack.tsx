@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from "react"
 import { motion, type Transition } from "framer-motion"
 import { cn } from "@/lib/utils"
-import image1 from "@assets/GI5A8116_1760177450748.JPG"
-import image2 from "@assets/IMG_1071 - Copy_1760177450748.JPG"
-import image3 from "@assets/IMG_1759 - Copy_1760177450748.JPG"
-import image4 from "@assets/IMG_4571_1760177450748.jpg"
-import image5 from "@assets/IMG_6508 - Copy_1760177450747.JPG"
+const image1 = "/assets/ui/cardstack/image-1.jpg";
+const image2 = "/assets/ui/cardstack/image-2.jpg";
+const image3 = "/assets/ui/cardstack/image-3.jpg";
+const image4 = "/assets/ui/cardstack/image-4.jpg";
+const image5 = "/assets/ui/cardstack/image-5.jpg";
 
 type ImageSource = string | { src: string; alt?: string }
 
@@ -42,10 +42,10 @@ function normalizeImages(images?: ImageSource[]): Card[] {
   const list =
     images && images.length > 0
       ? images.map((item) =>
-          typeof item === "string"
-            ? { src: item, alt: "" }
-            : { src: item.src, alt: item.alt ?? "" },
-        )
+        typeof item === "string"
+          ? { src: item, alt: "" }
+          : { src: item.src, alt: item.alt ?? "" },
+      )
       : DEFAULT_IMAGES
 
   return list.map((item, index) => ({
@@ -145,11 +145,11 @@ export function CardStack({
               whileDrag={
                 isFront
                   ? {
-                      cursor: "grabbing",
-                      zIndex: cards.length + 1,
-                      scale: 1 - index * scaleStep + 0.05,
-                      rotate: 2,
-                    }
+                    cursor: "grabbing",
+                    zIndex: cards.length + 1,
+                    scale: 1 - index * scaleStep + 0.05,
+                    rotate: 2,
+                  }
                   : undefined
               }
             >

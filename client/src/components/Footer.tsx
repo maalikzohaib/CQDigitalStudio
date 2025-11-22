@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Facebook, Instagram, Send, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
-import logo from "@assets/LOGO_1759990739353.png";
+const logo = "/assets/brand/logo-full.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

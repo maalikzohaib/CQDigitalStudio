@@ -1,9 +1,9 @@
 import { HoverSlider, HoverSliderImage, HoverSliderImageWrap, TextStaggerHover } from "@/components/ui/animated-slideshow";
-import weddingImage from "@assets/Slideshow component images/Wedding Shoot.png";
-import eventImage from "@assets/Slideshow component images/Event Coverage.JPG";
-import outdoorImage from "@assets/Slideshow component images/outdoor shoot.jpg";
-import productImage from "@assets/Slideshow component images/Product shoot.jpeg";
-import videoImage from "@assets/Slideshow component images/Video shoot.jpg";
+const weddingImage = "/assets/ui/slideshow/wedding.png";
+const eventImage = "/assets/ui/slideshow/event.jpg";
+const outdoorImage = "/assets/ui/slideshow/outdoor.jpg";
+const productImage = "/assets/ui/slideshow/product.jpg";
+const videoImage = "/assets/ui/slideshow/video.jpg";
 import { motion } from "motion/react";
 
 const SLIDES = [

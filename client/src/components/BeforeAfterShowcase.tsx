@@ -2,8 +2,8 @@ import { CompareImage } from "@/components/ui/compare-image";
 import { motion } from "motion/react";
 
 // Import some of your images for before/after comparison
-import beforeImage from "@assets/generated_images/restore_original.jpg";
-import afterImage from "@assets/generated_images/restore_enhanced.jpg";
+const beforeImage = "/assets/ui/before-after/original.jpg";
+const afterImage = "/assets/ui/before-after/enhanced.jpg";
 
 export function BeforeAfterShowcase() {
   return (

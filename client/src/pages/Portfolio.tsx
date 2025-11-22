@@ -5,10 +5,10 @@ import FilterTabs from "@/components/FilterTabs";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
 import ZoomImage from "@/components/ZoomImage";
-import weddingImage from "@assets/generated_images/Wedding_portfolio_sample_1f6f9bd5.png";
-import eventImage from "@assets/generated_images/Event_portfolio_sample_f4a5e768.png";
-import portraitImage from "@assets/generated_images/Portrait_portfolio_sample_63794526.png";
-import productImage from "@assets/generated_images/Product_portfolio_sample_6fc4bba1.png";
+const weddingImage = "/assets/hero/wedding-sample.png";
+const eventImage = "/assets/hero/event-sample.png";
+const portraitImage = "/assets/hero/portrait-sample.png";
+const productImage = "/assets/portfolio/products/product-sample-1.png";
 
 // Import new images
 // Removed import.meta.glob as we now fetch from API

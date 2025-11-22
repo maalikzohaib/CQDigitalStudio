@@ -1,5 +1,5 @@
 import PortfolioCard from '../PortfolioCard'
-import weddingImage from '@assets/generated_images/Wedding_portfolio_sample_1f6f9bd5.png'
+const weddingImage = "/assets/hero/wedding-sample.png";
 
 export default function PortfolioCardExample() {
   return (
