@@ -268,43 +268,64 @@
       "isVideo": false
     },
     {
+      "image": "/assets/portfolio/portraits/photography-shoot-39.jpg",
+      "title": "Photography Shoot 39",
+      "category": "Photography",
+      "type": "Portrait",
+      "isVideo": false
+    },
+    {
+      "image": "/assets/portfolio/portraits/photography-shoot-40.jpg",
+      "title": "Photography Shoot 40",
+      "category": "Photography",
+      "type": "Portrait",
+      "isVideo": false
+    },
+    {
+      "image": "/assets/portfolio/portraits/photography-shoot-41.jpg",
+      "title": "Photography Shoot 41",
+      "category": "Photography",
+      "type": "Portrait",
+      "isVideo": false
+    },
+    {
       "image": "/assets/portfolio/products/product-shoot-1.jpg",
-      "title": "Product Shoot 1",
+      "title": "Product Shoots Shoot 1",
       "category": "Product Shoots",
       "type": "Product",
       "isVideo": false
     },
     {
       "image": "/assets/portfolio/products/product-shoot-2.jpg",
-      "title": "Product Shoot 2",
+      "title": "Product Shoots Shoot 2",
       "category": "Product Shoots",
       "type": "Product",
       "isVideo": false
     },
     {
       "image": "/assets/portfolio/products/product-shoot-3.jpg",
-      "title": "Product Shoot 3",
+      "title": "Product Shoots Shoot 3",
       "category": "Product Shoots",
       "type": "Product",
       "isVideo": false
     },
     {
       "image": "/assets/portfolio/products/product-shoot-4.jpg",
-      "title": "Product Shoot 4",
+      "title": "Product Shoots Shoot 4",
       "category": "Product Shoots",
       "type": "Product",
       "isVideo": false
     },
     {
       "image": "/assets/portfolio/products/product-shoot-5.jpg",
-      "title": "Product Shoot 5",
+      "title": "Product Shoots Shoot 5",
       "category": "Product Shoots",
       "type": "Product",
       "isVideo": false
     },
     {
       "image": "/assets/portfolio/products/product-shoot-6.jpg",
-      "title": "Product Shoot 6",
+      "title": "Product Shoots Shoot 6",
       "category": "Product Shoots",
       "type": "Product",
       "isVideo": false

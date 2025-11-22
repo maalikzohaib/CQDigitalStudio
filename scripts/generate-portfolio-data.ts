@@ -10,7 +10,7 @@ interface PortfolioItem {
     isVideo?: boolean;
 }
 
-const portfolioPath = path.join(process.cwd(), 'attached_assets', 'Portfolio Images');
+const portfolioPath = path.join(process.cwd(), 'client', 'public', 'assets', 'portfolio');
 
 const readFiles = (dirPath: string, category: string, type: string, urlPrefix: string, isVideo: boolean = false): PortfolioItem[] => {
     try {
@@ -21,11 +21,18 @@ const readFiles = (dirPath: string, category: string, type: string, urlPrefix: s
             if (isVideo) {
                 return /\.(mp4|webm|ogg|mov)$/i.test(file.name);
             }
-            return /\.(jpg|jpeg|png|gif)$/i.test(file.name);
+            return /\.(jpg|jpeg|png|gif|JPG|PNG)$/i.test(file.name);
         });
 
-        return validFiles.map((file, index) => ({
-            image: `${urlPrefix}/${encodeURIComponent(file.name)}`,
+        // Sort files naturally (1, 2, 3... instead of 1, 10, 11...)
+        const sortedFiles = validFiles.sort((a, b) => {
+            const aNum = parseInt(a.name.match(/\d+/)?.[0] || '0');
+            const bNum = parseInt(b.name.match(/\d+/)?.[0] || '0');
+            return aNum - bNum;
+        });
+
+        return sortedFiles.map((file, index) => ({
+            image: `${urlPrefix}/${file.name}`,
             title: `${category} ${isVideo ? 'Video' : 'Shoot'} ${index + 1}`,
             category,
             type,
@@ -37,13 +44,13 @@ const readFiles = (dirPath: string, category: string, type: string, urlPrefix: s
     }
 };
 
-const photographyPath = portfolioPath;
-const productPath = path.join(portfolioPath, 'Product Shoots');
-const videographyPath = path.join(portfolioPath, 'Videography');
+const portraitsPath = path.join(portfolioPath, 'portraits');
+const productPath = path.join(portfolioPath, 'products');
+const videographyPath = path.join(portfolioPath, 'videography');
 
-const photographyImages = readFiles(photographyPath, 'Photography', 'Portrait', '/assets/portfolio');
-const productImages = readFiles(productPath, 'Product Shoots', 'Product', '/assets/portfolio/Product Shoots');
-const videographyVideos = readFiles(videographyPath, 'Videography', 'Wedding', '/assets/portfolio/Videography', true);
+const photographyImages = readFiles(portraitsPath, 'Photography', 'Portrait', '/assets/portfolio/portraits');
+const productImages = readFiles(productPath, 'Product Shoots', 'Product', '/assets/portfolio/products');
+const videographyVideos = readFiles(videographyPath, 'Videography', 'Videography', '/assets/portfolio/videography', true);
 
 const portfolioData = {
     success: true,
