@@ -1,5 +1,66 @@
 import { motion } from "framer-motion";
 import { Award, Users, Camera } from "lucide-react";
+import InteractiveBentoGallery from "@/components/ui/interactive-bento-gallery";
+
+// Media items for the About page gallery using local images
+const aboutMediaItems = [
+  {
+    id: 1,
+    type: "image",
+    title: "Studio Portrait",
+    desc: "Professional studio photography",
+    url: "/assets/About images/GI5A1026.JPG",
+    span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+  },
+  {
+    id: 2,
+    type: "image",
+    title: "Behind the Scenes",
+    desc: "Capturing the perfect moment",
+    url: "/assets/About images/GI5A1027.JPG",
+    span: "md:col-span-2 md:row-span-2 col-span-1 sm:col-span-2 sm:row-span-2",
+  },
+  {
+    id: 3,
+    type: "image",
+    title: "Creative Setup",
+    desc: "Where magic happens",
+    url: "/assets/About images/GI5A1028.JPG",
+    span: "md:col-span-1 md:row-span-3 sm:col-span-2 sm:row-span-2",
+  },
+  {
+    id: 4,
+    type: "image",
+    title: "Studio Excellence",
+    desc: "Professional-grade equipment",
+    url: "/assets/About images/GI5A1032.JPG",
+    span: "md:col-span-2 md:row-span-2 sm:col-span-1 sm:row-span-2",
+  },
+  {
+    id: 5,
+    type: "image",
+    title: "Creative Vision",
+    desc: "Artistic photography",
+    url: "/assets/About images/image-5.jpg",
+    span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+  },
+  {
+    id: 6,
+    type: "image",
+    title: "Our Team",
+    desc: "The faces behind the lens",
+    url: "/assets/About images/IMG_2323.JPG",
+    span: "md:col-span-2 md:row-span-2 sm:col-span-1 sm:row-span-2",
+  },
+  {
+    id: 7,
+    type: "image",
+    title: "Our Studio",
+    desc: "Where creativity meets technology",
+    url: "/assets/About images/IMG_5005.JPG",
+    span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+  },
+];
 
 export default function About() {
   const stats = [
@@ -10,6 +71,14 @@ export default function About() {
 
   return (
     <div className="pt-24">
+      {/* Interactive Bento Gallery */}
+      <section className="py-12 px-6 lg:px-8">
+        <InteractiveBentoGallery
+          mediaItems={aboutMediaItems}
+          title="Our Creative Journey"
+          description="Explore our studio, equipment, and the passion behind every shot"
+        />
+      </section>
       <section className="py-24 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div

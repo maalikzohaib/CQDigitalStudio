@@ -88,9 +88,12 @@ export default {
         "color-5": "hsl(var(--color-5))",
       },
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
-        display: ["Poppins", "sans-serif"],
-        serif: ["var(--font-serif)"],
+        sans: ["Montserrat", "sans-serif"],
+        serif: ["Giveny", "Georgia", "serif"],
+        heading: ["La Luxes", "Giveny", "Georgia", "serif"],
+        subheading: ["Giveny", "Georgia", "serif"],
+        display: ["La Luxes", "Giveny", "Georgia", "serif"],
+        price: ["Brandon Grotesque", "Montserrat", "sans-serif"],
         mono: ["JetBrains Mono", "var(--font-mono)"],
       },
       keyframes: {

@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppChatButton from "@/components/WhatsAppChatButton";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Portfolio from "@/pages/Portfolio";
@@ -57,6 +58,10 @@ export default function App() {
           <Footer />
         </div>
         <Toaster />
+        <WhatsAppChatButton 
+          phoneNumber="923004266312"
+          message="Hello! I'd like to know more about your services."
+        />
       </TooltipProvider>
     </QueryClientProvider>
   );
