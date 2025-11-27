@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PortfolioCard from "@/components/PortfolioCard";
 import FilterTabs from "@/components/FilterTabs";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import ZoomImage from "@/components/ZoomImage";
 const weddingImage = "/assets/hero/wedding-sample.png";
 const eventImage = "/assets/hero/event-sample.png";
@@ -16,6 +16,7 @@ const productImage = "/assets/portfolio/products/product-sample-1.png";
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const [dynamicItems, setDynamicItems] = useState<any[]>([]);
 
   useEffect(() => {
@@ -39,6 +40,53 @@ export default function Portfolio() {
     ? portfolioItems
     : portfolioItems.filter(item => item.category === activeCategory);
 
+  // Navigation functions
+  const goToNext = useCallback(() => {
+    if (selectedIndex < filteredItems.length - 1) {
+      const nextIndex = selectedIndex + 1;
+      setSelectedIndex(nextIndex);
+      setSelectedItem(filteredItems[nextIndex]);
+    }
+  }, [selectedIndex, filteredItems]);
+
+  const goToPrevious = useCallback(() => {
+    if (selectedIndex > 0) {
+      const prevIndex = selectedIndex - 1;
+      setSelectedIndex(prevIndex);
+      setSelectedItem(filteredItems[prevIndex]);
+    }
+  }, [selectedIndex, filteredItems]);
+
+  // Handle opening an item
+  const handleItemClick = (item: any, index: number) => {
+    setSelectedItem(item);
+    setSelectedIndex(index);
+  };
+
+  // Handle closing
+  const handleClose = () => {
+    setSelectedItem(null);
+    setSelectedIndex(-1);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedItem) return;
+      
+      if (e.key === 'ArrowRight') {
+        goToNext();
+      } else if (e.key === 'ArrowLeft') {
+        goToPrevious();
+      } else if (e.key === 'Escape') {
+        handleClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedItem, goToNext, goToPrevious]);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section with Gradient Background */}
@@ -48,7 +96,7 @@ export default function Portfolio() {
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse delay-1000" />
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-[95vw] xl:max-w-[1600px] 2xl:max-w-[1800px] mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -76,14 +124,14 @@ export default function Portfolio() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
             >
               {filteredItems.map((item, index) => (
                 <PortfolioCard
                   key={item.title}
                   {...item}
                   index={index}
-                  onClick={() => setSelectedItem(item)}
+                  onClick={() => handleItemClick(item, index)}
                 />
               ))}
             </motion.div>
@@ -91,18 +139,40 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
+      <Dialog open={!!selectedItem} onOpenChange={handleClose}>
         <DialogContent className="max-w-[95vw] h-[90vh] p-0 bg-transparent border-none shadow-none focus:outline-none">
           {selectedItem && (
             <div className="relative w-full h-full flex items-center justify-center bg-black/95 rounded-2xl overflow-hidden ring-1 ring-white/10">
               {/* Close Button */}
               <button
-                onClick={() => setSelectedItem(null)}
+                onClick={handleClose}
                 className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/10 transition-all duration-300 hover:scale-110 group"
                 data-testid="button-close-lightbox"
               >
                 <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
               </button>
+
+              {/* Previous Button */}
+              {selectedIndex > 0 && (
+                <button
+                  onClick={goToPrevious}
+                  className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-50 p-3 md:p-4 rounded-full bg-white/10 text-white hover:bg-white/30 backdrop-blur-md border border-white/10 transition-all duration-300 hover:scale-110 group"
+                  data-testid="button-previous"
+                >
+                  <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 group-hover:-translate-x-1 transition-transform duration-300" />
+                </button>
+              )}
+
+              {/* Next Button */}
+              {selectedIndex < filteredItems.length - 1 && (
+                <button
+                  onClick={goToNext}
+                  className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 p-3 md:p-4 rounded-full bg-white/10 text-white hover:bg-white/30 backdrop-blur-md border border-white/10 transition-all duration-300 hover:scale-110 group"
+                  data-testid="button-next"
+                >
+                  <ChevronRight className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-1 transition-transform duration-300" />
+                </button>
+              )}
 
               {/* Media Container */}
               <div className="w-full h-full flex items-center justify-center p-4 md:p-12">
@@ -140,9 +210,14 @@ export default function Portfolio() {
                       {selectedItem.category}
                     </span>
                   </div>
-                  <p className="text-white/70 text-lg max-w-2xl">
-                    {selectedItem.type}
-                  </p>
+                  <div className="flex flex-col md:flex-row items-center md:items-start gap-2">
+                    <p className="text-white/70 text-lg max-w-2xl">
+                      {selectedItem.type}
+                    </p>
+                    <span className="text-white/50 text-sm md:ml-auto">
+                      {selectedIndex + 1} / {filteredItems.length}
+                    </span>
+                  </div>
                 </motion.div>
               </div>
             </div>

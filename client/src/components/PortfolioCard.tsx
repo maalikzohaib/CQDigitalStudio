@@ -113,9 +113,6 @@ export default function PortfolioCard({
           <p className="text-xs font-medium text-primary-foreground/80 mb-2 uppercase tracking-wider transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
             {category}
           </p>
-          <h3 className="text-xl font-display font-bold text-white mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">
-            {title}
-          </h3>
           <div className="h-1 w-12 bg-primary rounded-full mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left delay-150" />
         </div>
       </div>
