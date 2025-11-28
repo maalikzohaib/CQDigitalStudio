@@ -12,8 +12,8 @@ import { Badge } from '@/components/ui/badge';
 import { Check, Camera, Video, Image as ImageIcon, BookOpen, Plane, Phone } from 'lucide-react';
 
 type Category = 'DSLR' | 'Mirrorless';
-type Brand = 'Sony' | 'Canon' | 'Nikon';
-type AlbumType = 'Indian' | 'Glass Window' | 'Box';
+type Brand = 'Canon' | 'Nikon' | 'Sony';
+type AlbumType = 'None' | 'Indian' | 'Glass Window' | 'Box';
 
 const PRICING = {
     DSLR: {
@@ -21,9 +21,13 @@ const PRICING = {
             1: 10000,
             2: 18000,
         },
-        photo: 5000, // Per camera per day (assumed based on context)
+        photo: {
+            1: 5000,
+            2: 10000,
+        },
         drone: 8000, // Per day
         albums: {
+            'None': 0,
             'Indian': 10000,
             'Glass Window': 12000,
             'Box': 15000,
@@ -34,9 +38,13 @@ const PRICING = {
             1: 20000,
             2: 40000,
         },
-        photo: 5000, // Same as DSLR
+        photo: {
+            1: 12000,
+            2: 22000,
+        },
         drone: 10000,
         albums: {
+            'None': 0,
             'Indian': 10000,
             'Glass Window': 12000,
             'Box': 15000,
@@ -46,13 +54,13 @@ const PRICING = {
 
 export const PackageBuilder = () => {
     const [category, setCategory] = useState<Category>('DSLR');
-    const [brand, setBrand] = useState<Brand>('Sony');
+    const [brand, setBrand] = useState<Brand>('Canon');
     const [days, setDays] = useState<number>(1);
 
     const [videoCamCount, setVideoCamCount] = useState<number>(1);
     const [photoCamCount, setPhotoCamCount] = useState<number>(1);
 
-    const [albumType, setAlbumType] = useState<AlbumType>('Indian');
+    const [albumType, setAlbumType] = useState<AlbumType>('None');
     const [albumCount, setAlbumCount] = useState<number>(0);
 
     const [droneEnabled, setDroneEnabled] = useState<boolean>(false);
@@ -76,11 +84,11 @@ export const PackageBuilder = () => {
         total += videoDaily * days;
 
         // Photo Camera Cost
-        // Prompt: "1 Photo Camera: PKR 5,000 (for the event)". 
-        // I am interpreting "for the event" as "per day" because 5000 total for 4 days is unrealistic.
-        // If user meant flat fee, I can change this line: `total += pricing.photo * photoCamCount;`
-        // But for now:
-        total += pricing.photo * photoCamCount * days;
+        // Updated logic to handle tiered pricing for both DSLR and Mirrorless
+        if (photoCamCount > 0) {
+            const photoDaily = pricing.photo[photoCamCount as 1 | 2] || (pricing.photo[1] * photoCamCount);
+            total += photoDaily * days;
+        }
 
         // Drone Cost
         if (droneEnabled) {
@@ -117,7 +125,7 @@ export const PackageBuilder = () => {
                     <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                         Tailor your photography and videography package to suit your event perfectly.
                         <br />
-                        <span className="text-primary font-medium">All packages and prices are more customizable. Please contact us.</span>
+                        <span className="text-primary font-medium">All packages are fully customizable.</span>
                     </p>
                 </div>
 
@@ -141,9 +149,9 @@ export const PackageBuilder = () => {
                                             <SelectValue placeholder="Select Brand" />
                                         </SelectTrigger>
                                         <SelectContent>
-                                            <SelectItem value="Sony">Sony</SelectItem>
                                             <SelectItem value="Canon">Canon</SelectItem>
                                             <SelectItem value="Nikon">Nikon</SelectItem>
+                                            <SelectItem value="Sony">Sony</SelectItem>
                                         </SelectContent>
                                     </Select>
                                 </div>
@@ -158,7 +166,7 @@ export const PackageBuilder = () => {
                                         value={[days]}
                                         onValueChange={(v) => setDays(v[0])}
                                         min={1}
-                                        max={4}
+                                        max={6}
                                         step={1}
                                         className="py-4"
                                     />
@@ -167,6 +175,8 @@ export const PackageBuilder = () => {
                                         <span>2 Days</span>
                                         <span>3 Days</span>
                                         <span>4 Days</span>
+                                        <span>5 Days</span>
+                                        <span>6 Days</span>
                                     </div>
                                 </div>
 
@@ -179,7 +189,7 @@ export const PackageBuilder = () => {
                                                 <span className="font-mono font-medium">{videoCamCount}</span>
                                             </div>
                                             <div className="flex gap-2">
-                                                {[1, 2].map(num => (
+                                                {[0, 1, 2].map(num => (
                                                     <Button
                                                         key={num}
                                                         variant={videoCamCount === num ? "default" : "outline"}
@@ -187,14 +197,16 @@ export const PackageBuilder = () => {
                                                         onClick={() => setVideoCamCount(num)}
                                                         className="flex-1"
                                                     >
-                                                        {num}
+                                                        {num === 0 ? "None" : num}
                                                     </Button>
                                                 ))}
                                             </div>
                                             <p className="text-xs text-muted-foreground">
-                                                {category === 'DSLR'
-                                                    ? (videoCamCount === 1 ? 'PKR 10,000/day' : 'PKR 18,000/day')
-                                                    : (videoCamCount === 1 ? 'PKR 20,000/day' : 'PKR 40,000/day')}
+                                                {videoCamCount === 0 ? 'No Charge' : (
+                                                    category === 'DSLR'
+                                                        ? (videoCamCount === 1 ? 'PKR 10,000/day' : 'PKR 18,000/day')
+                                                        : (videoCamCount === 1 ? 'PKR 20,000/day' : 'PKR 40,000/day')
+                                                )}
                                             </p>
                                         </div>
 
@@ -204,7 +216,7 @@ export const PackageBuilder = () => {
                                                 <span className="font-mono font-medium">{photoCamCount}</span>
                                             </div>
                                             <div className="flex gap-2">
-                                                {[1, 2].map(num => (
+                                                {[0, 1, 2].map(num => (
                                                     <Button
                                                         key={num}
                                                         variant={photoCamCount === num ? "default" : "outline"}
@@ -212,12 +224,16 @@ export const PackageBuilder = () => {
                                                         onClick={() => setPhotoCamCount(num)}
                                                         className="flex-1"
                                                     >
-                                                        {num}
+                                                        {num === 0 ? "None" : num}
                                                     </Button>
                                                 ))}
                                             </div>
                                             <p className="text-xs text-muted-foreground">
-                                                {photoCamCount === 1 ? 'PKR 5,000/day' : 'PKR 10,000/day'}
+                                                {photoCamCount === 0 ? 'No Charge' : (
+                                                    category === 'DSLR'
+                                                        ? (photoCamCount === 1 ? 'PKR 5,000/day' : 'PKR 10,000/day')
+                                                        : (photoCamCount === 1 ? 'PKR 12,000/day' : 'PKR 22,000/day')
+                                                )}
                                             </p>
                                         </div>
                                     </div>
@@ -226,11 +242,23 @@ export const PackageBuilder = () => {
                                     <div className="space-y-6">
                                         <div className="space-y-3">
                                             <Label className="flex items-center gap-2"><BookOpen className="w-4 h-4" /> Albums</Label>
-                                            <Select value={albumType} onValueChange={(v) => setAlbumType(v as AlbumType)}>
+                                            <Select
+                                                value={albumType}
+                                                onValueChange={(v) => {
+                                                    const newType = v as AlbumType;
+                                                    setAlbumType(newType);
+                                                    if (newType === 'None') {
+                                                        setAlbumCount(0);
+                                                    } else if (albumCount === 0) {
+                                                        setAlbumCount(1);
+                                                    }
+                                                }}
+                                            >
                                                 <SelectTrigger>
                                                     <SelectValue />
                                                 </SelectTrigger>
                                                 <SelectContent>
+                                                    <SelectItem value="None">None</SelectItem>
                                                     <SelectItem value="Indian">Indian (PKR 10k)</SelectItem>
                                                     <SelectItem value="Glass Window">Glass Window (PKR 12k)</SelectItem>
                                                     <SelectItem value="Box">Box (PKR 15k)</SelectItem>
@@ -243,13 +271,15 @@ export const PackageBuilder = () => {
                                                     <Button
                                                         variant="outline" size="icon" className="h-8 w-8"
                                                         onClick={() => setAlbumCount(Math.max(0, albumCount - 1))}
+                                                        disabled={albumType === 'None'}
                                                     >
                                                         -
                                                     </Button>
-                                                    <span className="w-4 text-center">{albumCount}</span>
+                                                    <span className={`w-4 text-center ${albumType === 'None' ? 'text-muted-foreground' : ''}`}>{albumCount}</span>
                                                     <Button
                                                         variant="outline" size="icon" className="h-8 w-8"
                                                         onClick={() => setAlbumCount(albumCount + 1)}
+                                                        disabled={albumType === 'None'}
                                                     >
                                                         +
                                                     </Button>
@@ -302,7 +332,7 @@ export const PackageBuilder = () => {
                                             </div>
                                             <div className="flex justify-between">
                                                 <span>Photo ({photoCamCount})</span>
-                                                <span>PKR {(PRICING[category].photo * photoCamCount * days).toLocaleString()}</span>
+                                                <span>PKR {(photoCamCount > 0 ? PRICING[category].photo[photoCamCount as 1 | 2] * days : 0).toLocaleString()}</span>
                                             </div>
                                             {droneEnabled && (
                                                 <div className="flex justify-between">
