@@ -4,7 +4,7 @@ import { TestimonialsColumnsDemo } from "@/components/ui/testimonials-columns-de
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
 import { ServicesSlideshow } from "@/components/ServicesSlideshow";
-import { PricingPlans } from "@/components/PricingPlans";
+import { PackageBuilder } from "@/components/PackageBuilder";
 import { BeforeAfterShowcase } from "@/components/BeforeAfterShowcase";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      
+
       <ServicesSlideshow />
 
       <BeforeAfterShowcase />
@@ -37,7 +37,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <PricingPlans />
+      <PackageBuilder />
 
       <TestimonialsColumnsDemo />
     </div>

@@ -1,14 +1,9 @@
-import { PricingPlans } from "@/components/PricingPlans";
+import { PackageBuilder } from "@/components/PackageBuilder";
 
 export default function Packages() {
   return (
     <div className="pt-24">
-      <section className="py-12">
-        <PricingPlans
-          title="Our Packages"
-          subtitle="Choose the perfect package for your needs. All packages are fully customizable."
-        />
-      </section>
+      <PackageBuilder />
     </div>
   );
 }
