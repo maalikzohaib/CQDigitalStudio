@@ -17,35 +17,35 @@ export default function Navbar() {
     {
       title: "Home",
       icon: (
-        <IconHome className="h-full w-full text-foreground" />
+        <IconHome className="h-full w-full text-white" />
       ),
       href: "/",
     },
     {
-      title: "About",
-      icon: (
-        <IconInfoCircle className="h-full w-full text-foreground" />
-      ),
-      href: "/about",
-    },
-    {
       title: "Portfolio",
       icon: (
-        <IconPhoto className="h-full w-full text-foreground" />
+        <IconPhoto className="h-full w-full text-white" />
       ),
       href: "/portfolio",
     },
     {
       title: "Packages",
       icon: (
-        <IconPackage className="h-full w-full text-foreground" />
+        <IconPackage className="h-full w-full text-white" />
       ),
       href: "/packages",
     },
     {
+      title: "About",
+      icon: (
+        <IconInfoCircle className="h-full w-full text-white" />
+      ),
+      href: "/about",
+    },
+    {
       title: "Contact",
       icon: (
-        <IconMail className="h-full w-full text-foreground" />
+        <IconMail className="h-full w-full text-white" />
       ),
       href: "/contact",
     },

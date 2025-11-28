@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ServicesSlideshow } from "@/components/ServicesSlideshow";
 import { PackageBuilder } from "@/components/PackageBuilder";
 import { BeforeAfterShowcase } from "@/components/BeforeAfterShowcase";
+import PortfolioTicker from "@/components/PortfolioTicker";
 
 export default function Home() {
   useScrollAnimation();
@@ -17,6 +18,8 @@ export default function Home() {
       <ServicesSlideshow />
 
       <BeforeAfterShowcase />
+
+      <PortfolioTicker />
 
       <section className="relative">
         <motion.div

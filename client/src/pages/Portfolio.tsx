@@ -73,7 +73,7 @@ export default function Portfolio() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!selectedItem) return;
-      
+
       if (e.key === 'ArrowRight') {
         goToNext();
       } else if (e.key === 'ArrowLeft') {
@@ -140,7 +140,7 @@ export default function Portfolio() {
       </section>
 
       <Dialog open={!!selectedItem} onOpenChange={handleClose}>
-        <DialogContent className="max-w-[95vw] h-[90vh] p-0 bg-transparent border-none shadow-none focus:outline-none">
+        <DialogContent hideCloseButton className="max-w-[95vw] h-[90vh] p-0 bg-transparent border-none shadow-none focus:outline-none">
           {selectedItem && (
             <div className="relative w-full h-full flex items-center justify-center bg-black/95 rounded-2xl overflow-hidden ring-1 ring-white/10">
               {/* Close Button */}
