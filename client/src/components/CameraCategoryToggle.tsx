@@ -9,19 +9,19 @@ interface CameraCategoryToggleProps {
 
 export const CameraCategoryToggle = ({ value, onChange }: CameraCategoryToggleProps) => {
     return (
-        <div className="flex justify-center w-full mb-8">
-            <div className="relative flex items-center bg-muted/50 p-1 rounded-full border border-border/50">
+        <div className="flex justify-center w-full mb-10">
+            <div className="relative flex items-center bg-muted p-1.5 rounded-full border-2 border-primary/10 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <button
                     onClick={() => onChange('DSLR')}
                     className={cn(
-                        "relative z-10 px-6 py-2 text-sm font-medium transition-colors duration-200 rounded-full min-w-[140px]",
-                        value === 'DSLR' ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground/80"
+                        "relative z-10 px-8 py-3 text-base font-semibold transition-colors duration-200 rounded-full min-w-[160px]",
+                        value === 'DSLR' ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
                     )}
                 >
                     {value === 'DSLR' && (
                         <motion.div
                             layoutId="active-pill"
-                            className="absolute inset-0 bg-primary rounded-full shadow-sm"
+                            className="absolute inset-0 bg-primary rounded-full shadow-md"
                             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                         />
                     )}
@@ -31,14 +31,14 @@ export const CameraCategoryToggle = ({ value, onChange }: CameraCategoryTogglePr
                 <button
                     onClick={() => onChange('Mirrorless')}
                     className={cn(
-                        "relative z-10 px-6 py-2 text-sm font-medium transition-colors duration-200 rounded-full min-w-[140px]",
-                        value === 'Mirrorless' ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground/80"
+                        "relative z-10 px-8 py-3 text-base font-semibold transition-colors duration-200 rounded-full min-w-[160px]",
+                        value === 'Mirrorless' ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
                     )}
                 >
                     {value === 'Mirrorless' && (
                         <motion.div
                             layoutId="active-pill"
-                            className="absolute inset-0 bg-primary rounded-full shadow-sm"
+                            className="absolute inset-0 bg-primary rounded-full shadow-md"
                             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                         />
                     )}
