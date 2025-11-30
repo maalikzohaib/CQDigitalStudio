@@ -2,45 +2,11 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 import ContactForm from "@/components/ContactForm";
+import { LocationMap } from "@/components/LocationMap";
 
 
 export default function Contact() {
-  const markers = [
-    {
-      id: 1,
-      position: [24.8607, 67.0011] as const,
-      color: "blue",
-      size: "large",
-      popup: {
-        title: "CQ Digital Studio — Karachi",
-        content: "Main production studio at Clifton Block 5, Karachi.",
-        image:
-          "https://images.unsplash.com/photo-1470123808288-1e59739eca14?auto=format&fit=crop&w=400&q=80",
-      },
-    },
-    {
-      id: 2,
-      position: [31.5204, 74.3587] as const,
-      color: "violet",
-      size: "medium",
-      popup: {
-        title: "Client Lounge — Lahore",
-        content: "Meeting suite and editing desk in Gulberg, Lahore.",
-        image:
-          "https://images.unsplash.com/photo-1529429617124-aee711a65a0b?auto=format&fit=crop&w=400&q=80",
-      },
-    },
-  ];
 
-  const circles = [
-    {
-      id: 1,
-      center: [24.8607, 67.0011] as const,
-      radius: 1200,
-      style: { color: "#0ea5e9", fillOpacity: 0.15 },
-      popup: "Primary service coverage around our Karachi studio.",
-    },
-  ];
 
   return (
     <div className="pt-24">
@@ -132,8 +98,19 @@ export default function Contact() {
               </div>
 
 
+
+
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16"
+          >
+            <LocationMap className="w-full h-[500px]" />
+          </motion.div>
         </div>
       </section>
     </div>
