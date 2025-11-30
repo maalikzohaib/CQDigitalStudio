@@ -86,7 +86,7 @@ export default function Contact() {
                     <div>
                       <p className="font-medium mb-1">Address</p>
                       <p className="text-sm text-muted-foreground" data-testid="text-contact-address">
-                        Bhatta Chowk Bedian Road<br />
+                        Billal Town Bhatta Chowk Bedian Road<br />
                         Lahore, Pakistan
                       </p>
                     </div>
@@ -123,9 +123,8 @@ export default function Contact() {
                     <div>
                       <p className="font-medium mb-1">Business Hours</p>
                       <p className="text-sm text-muted-foreground" data-testid="text-contact-hours">
-                        Mon - Fri: 9:00 AM - 6:00 PM<br />
-                        Sat: 10:00 AM - 4:00 PM<br />
-                        Sun: Closed
+                        Mon - Sat: 10:00 AM - 10:00 PM<br />
+                        Sun: 12:00 PM - 6:00 PM
                       </p>
                     </div>
                   </div>

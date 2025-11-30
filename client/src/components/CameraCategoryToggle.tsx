@@ -42,7 +42,7 @@ export const CameraCategoryToggle = ({ value, onChange }: CameraCategoryTogglePr
                             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                         />
                     )}
-                    <span className="relative z-10">Mirrorless (4K)</span>
+                    <span className="relative z-10">Mirrorless (2K)</span>
                 </button>
             </div>
         </div>

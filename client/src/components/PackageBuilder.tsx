@@ -57,8 +57,8 @@ export const PackageBuilder = () => {
     const [brand, setBrand] = useState<Brand>('Canon');
     const [days, setDays] = useState<number>(1);
 
-    const [videoCamCount, setVideoCamCount] = useState<number>(1);
-    const [photoCamCount, setPhotoCamCount] = useState<number>(1);
+    const [videoCamCount, setVideoCamCount] = useState<number>(0);
+    const [photoCamCount, setPhotoCamCount] = useState<number>(0);
 
     const [albumType, setAlbumType] = useState<AlbumType>('None');
     const [albumCount, setAlbumCount] = useState<number>(0);
@@ -328,7 +328,7 @@ export const PackageBuilder = () => {
                                         <div className="border-t border-border/50 my-2 pt-2 space-y-1">
                                             <div className="flex justify-between">
                                                 <span>Video ({videoCamCount})</span>
-                                                <span>PKR {(PRICING[category].video[videoCamCount as 1 | 2] * days).toLocaleString()}</span>
+                                                <span>PKR {(videoCamCount > 0 ? PRICING[category].video[videoCamCount as 1 | 2] * days : 0).toLocaleString()}</span>
                                             </div>
                                             <div className="flex justify-between">
                                                 <span>Photo ({photoCamCount})</span>
