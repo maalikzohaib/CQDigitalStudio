@@ -56,7 +56,17 @@ export default function PortfolioCard({
   const handleMouseLeave = () => {
     if (videoRef.current) {
       videoRef.current.pause();
-      videoRef.current.currentTime = 0;
+      // Reset to middle frame for preview
+      if (videoRef.current.duration) {
+        videoRef.current.currentTime = videoRef.current.duration / 2;
+      }
+    }
+  };
+
+  const handleLoadedMetadata = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = e.currentTarget;
+    if (video.duration) {
+      video.currentTime = video.duration / 2;
     }
   };
 
@@ -73,7 +83,7 @@ export default function PortfolioCard({
       onMouseLeave={isVideo ? handleMouseLeave : undefined}
       data-testid={`card-portfolio-${title.toLowerCase().replace(/\s+/g, '-')}`}
     >
-      <div className="aspect-[4/3] overflow-hidden relative bg-muted/20">
+      <div className={`${isVideo ? "aspect-[9/16]" : "aspect-[4/3]"} overflow-hidden relative bg-muted/20`}>
         {isVideo ? (
           <video
             ref={videoRef}
@@ -83,6 +93,7 @@ export default function PortfolioCard({
             loop
             playsInline
             preload="metadata"
+            onLoadedMetadata={handleLoadedMetadata}
           />
         ) : (
           <img

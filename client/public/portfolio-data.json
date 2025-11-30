@@ -861,6 +861,55 @@
       "category": "Videography",
       "type": "Videography",
       "isVideo": true
+    },
+    {
+      "image": "/assets/portfolio/videography/videography-video-10.mp4",
+      "title": "Wedding Highlights",
+      "category": "Videography",
+      "type": "Videography",
+      "isVideo": true
+    },
+    {
+      "image": "/assets/portfolio/videography/videography-video-11.mp4",
+      "title": "Blessings Event Highlight",
+      "category": "Videography",
+      "type": "Videography",
+      "isVideo": true
+    },
+    {
+      "image": "/assets/portfolio/videography/videography-video-12.mp4",
+      "title": "WedStory Highlight 1",
+      "category": "Videography",
+      "type": "Videography",
+      "isVideo": true
+    },
+    {
+      "image": "/assets/portfolio/videography/videography-video-13.mp4",
+      "title": "WedStory Highlight 2",
+      "category": "Videography",
+      "type": "Videography",
+      "isVideo": true
+    },
+    {
+      "image": "/assets/portfolio/videography/videography-video-14.mp4",
+      "title": "Xtreme Studio Photography",
+      "category": "Videography",
+      "type": "Videography",
+      "isVideo": true
+    },
+    {
+      "image": "/assets/portfolio/videography/videography-video-15.mp4",
+      "title": "Aisha & Rameez Baraat",
+      "category": "Videography",
+      "type": "Videography",
+      "isVideo": true
+    },
+    {
+      "image": "/assets/portfolio/videography/videography-video-16.mp4",
+      "title": "WedStory Highlight 3",
+      "category": "Videography",
+      "type": "Videography",
+      "isVideo": true
     }
   ]
 }

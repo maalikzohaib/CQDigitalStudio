@@ -202,19 +202,11 @@ export default function Portfolio() {
                   transition={{ delay: 0.2 }}
                   className="max-w-4xl mx-auto text-center md:text-left"
                 >
-                  <div className="flex flex-col md:flex-row items-center md:items-end gap-4 mb-2">
-                    <h3 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
-                      {selectedItem.title}
-                    </h3>
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/20 text-white backdrop-blur-md border border-white/10 mb-1.5">
+                  <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4">
+                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/20 text-white backdrop-blur-md border border-white/10">
                       {selectedItem.category}
                     </span>
-                  </div>
-                  <div className="flex flex-col md:flex-row items-center md:items-start gap-2">
-                    <p className="text-white/70 text-lg max-w-2xl">
-                      {selectedItem.type}
-                    </p>
-                    <span className="text-white/50 text-sm md:ml-auto">
+                    <span className="text-white/50 text-sm">
                       {selectedIndex + 1} / {filteredItems.length}
                     </span>
                   </div>
