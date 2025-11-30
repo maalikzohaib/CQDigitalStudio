@@ -83,7 +83,7 @@ export default function PortfolioCard({
       onMouseLeave={isVideo ? handleMouseLeave : undefined}
       data-testid={`card-portfolio-${title.toLowerCase().replace(/\s+/g, '-')}`}
     >
-      <div className={`${isVideo ? "aspect-[9/16]" : "aspect-[4/3]"} overflow-hidden relative bg-muted/20`}>
+      <div className={`${isVideo ? "aspect-[9/16]" : "aspect-[3/4]"} overflow-hidden relative bg-muted/20`}>
         {isVideo ? (
           <video
             ref={videoRef}
