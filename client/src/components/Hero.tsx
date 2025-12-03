@@ -2,15 +2,20 @@ import { ContainerScroll, BentoGrid, BentoCell, ContainerScale } from "@/compone
 import { SlideInButton } from "@/components/ui/SlideInButton";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
+import { useTheme } from "@/contexts/ThemeContext";
+
 const weddingImage = "/assets/hero/wedding-sample.png";
 const eventImage = "/assets/hero/event-sample.png";
 const portraitImage = "/assets/hero/portrait-sample.png";
 const productImage = "/assets/hero/product-sample.jpg";
 const studioHeroImage = "/assets/hero/studio-background.png";
-const logoImage = "/assets/brand/logo.png";
 
 export default function Hero() {
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const { theme } = useTheme();
+
+  // Use white logo for dark theme, black logo for light theme
+  const logoImage = theme === 'dark' ? "/assets/brand/White.png" : "/assets/brand/Black.png";
 
   const IMAGES = [
     weddingImage,
@@ -62,7 +67,7 @@ export default function Hero() {
         <img
           src={logoImage}
           alt="CQ Digital Studio Logo"
-          className="w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] h-auto mx-auto"
+          className="w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] h-auto mx-auto transition-opacity duration-300"
           loading="eager"
         />
         <div className="flex items-center justify-center mt-8">

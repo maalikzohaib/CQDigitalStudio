@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   IconHome,
   IconInfoCircle,
@@ -58,8 +59,14 @@ export default function Navbar() {
         <FloatingDock items={links} />
       </div>
 
-      {/* Mobile/Tablet Menu Button */}
-      <div className="lg:hidden fixed top-4 right-4 z-50">
+      {/* Desktop Theme Toggle */}
+      <div className="hidden lg:block fixed top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
+
+      {/* Mobile/Tablet Menu and Theme Toggle */}
+      <div className="lg:hidden fixed top-4 right-4 z-50 flex gap-2">
+        <ThemeToggle />
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="p-3 bg-card border border-card-border rounded-full hover-elevate active-elevate-2 shadow-lg"

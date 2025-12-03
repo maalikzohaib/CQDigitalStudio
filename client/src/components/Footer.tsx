@@ -9,17 +9,25 @@ import {
 } from "@/components/ui/tooltip";
 import { Facebook, Instagram, Send, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
-const logo = "/assets/brand/logo-full.png";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { theme } = useTheme();
+
+  // Use white logo for dark theme, black logo for light theme
+  const logo = theme === 'dark' ? "/assets/brand/White.png" : "/assets/brand/Black.png";
 
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300 mt-24">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
-            <img src={logo} alt="CQ Digital Studio Logo" className="h-32" />
+            <img
+              src={logo}
+              alt="CQ Digital Studio Logo"
+              className="h-32 transition-opacity duration-300"
+            />
           </div>
           <div>
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
