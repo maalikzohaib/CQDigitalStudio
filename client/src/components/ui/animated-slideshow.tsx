@@ -1,4 +1,4 @@
-"use client" 
+"use client"
 
 import * as React from "react"
 import { HTMLMotionProps, MotionConfig, motion } from "motion/react"
@@ -12,7 +12,7 @@ interface HoverSliderImageProps {
   index: number
   imageUrl: string
 }
-interface HoverSliderProps {}
+interface HoverSliderProps { }
 interface HoverSliderContextValue {
   activeSlide: number
   changeSlide: (index: number) => void
@@ -77,9 +77,12 @@ export const TextStaggerHover = React.forwardRef<
   React.HTMLAttributes<HTMLElement> & TextStaggerHoverProps
 >(({ text, index, children, className, ...props }, ref) => {
   const { activeSlide, changeSlide } = useHoverSliderContext()
-  const { characters } = splitText(text)
+  const { words } = splitText(text)
   const isActive = activeSlide === index
   const handleMouse = () => changeSlide(index)
+
+  let charGlobalIndex = 0;
+
   return (
     <span
       className={cn(
@@ -90,35 +93,44 @@ export const TextStaggerHover = React.forwardRef<
       ref={ref}
       onMouseEnter={handleMouse}
     >
-      {characters.map((char, index) => (
-        <span
-          key={`${char}-${index}`}
-          className="relative inline-block overflow-hidden"
-        >
-          <MotionConfig
-            transition={{
-              delay: index * 0.02,
-              duration: 0.5,
-              ease: [0.33, 1, 0.68, 1],
-            }}
-          >
-            <motion.span
-              className="inline-block opacity-20 will-change-transform"
-              initial={{ y: "0%" }}
-              animate={isActive ? { y: "-110%" } : { y: "0%" }}
-            >
-              {char}
-              {char === " " && index < characters.length - 1 && <>&nbsp;</>}
-            </motion.span>
+      {words.map((word, wIndex) => (
+        <span key={wIndex} className="inline-block whitespace-nowrap">
+          {word.split("").map((char, cIndex) => {
+            const currentDelay = charGlobalIndex * 0.02;
+            charGlobalIndex++;
 
-            <motion.span
-              className="absolute left-0 top-0 inline-block opacity-100 will-change-transform"
-              initial={{ y: "110%" }}
-              animate={isActive ? { y: "0%" } : { y: "110%" }}
-            >
-              {char}
-            </motion.span>
-          </MotionConfig>
+            return (
+              <span
+                key={`${char}-${wIndex}-${cIndex}`}
+                className="relative inline-block overflow-hidden"
+              >
+                <MotionConfig
+                  transition={{
+                    delay: currentDelay,
+                    duration: 0.5,
+                    ease: [0.33, 1, 0.68, 1],
+                  }}
+                >
+                  <motion.span
+                    className="inline-block opacity-20 will-change-transform"
+                    initial={{ y: "0%" }}
+                    animate={isActive ? { y: "-110%" } : { y: "0%" }}
+                  >
+                    {char}
+                    {char === " " && <>&nbsp;</>}
+                  </motion.span>
+
+                  <motion.span
+                    className="absolute left-0 top-0 inline-block opacity-100 will-change-transform"
+                    initial={{ y: "110%" }}
+                    animate={isActive ? { y: "0%" } : { y: "110%" }}
+                  >
+                    {char}
+                  </motion.span>
+                </MotionConfig>
+              </span>
+            )
+          })}
         </span>
       ))}
     </span>

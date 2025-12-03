@@ -191,7 +191,7 @@ export default function PortfolioTicker() {
                 <SlideInButton
                     onClick={() => setLocation('/portfolio')}
                     icon={<ArrowRight className="w-4 h-4" />}
-                    className="text-lg px-8 py-6"
+                    className="text-lg px-8 py-3"
                 >
                     View Portfolio
                 </SlideInButton>
