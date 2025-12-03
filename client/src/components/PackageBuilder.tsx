@@ -19,7 +19,7 @@ const PRICING = {
     DSLR: {
         video: {
             1: 10000,
-            2: 18000,
+            2: 20000,
         },
         photo: {
             1: 5000,
@@ -36,13 +36,13 @@ const PRICING = {
     Mirrorless: {
         video: {
             1: 20000,
-            2: 35000,
+            2: 40000,
         },
         photo: {
             1: 12000,
-            2: 22000,
+            2: 24000,
         },
-        drone: 8000,
+        drone: 10000,
         albums: {
             'None': 0,
             'Indian': 12000,
@@ -203,8 +203,8 @@ export const PackageBuilder = () => {
                                             <p className="text-xs text-muted-foreground">
                                                 {videoCamCount === 0 ? 'No Charge' : (
                                                     category === 'DSLR'
-                                                        ? (videoCamCount === 1 ? 'PKR 10,000/day' : 'PKR 18,000/day')
-                                                        : (videoCamCount === 1 ? 'PKR 20,000/day' : 'PKR 35,000/day')
+                                                        ? (videoCamCount === 1 ? 'PKR 10,000/day' : 'PKR 20,000/day')
+                                                        : (videoCamCount === 1 ? 'PKR 20,000/day' : 'PKR 40,000/day')
                                                 )}
                                             </p>
                                         </div>
@@ -231,7 +231,7 @@ export const PackageBuilder = () => {
                                                 {photoCamCount === 0 ? 'No Charge' : (
                                                     category === 'DSLR'
                                                         ? (photoCamCount === 1 ? 'PKR 5,000/day' : 'PKR 10,000/day')
-                                                        : (photoCamCount === 1 ? 'PKR 12,000/day' : 'PKR 22,000/day')
+                                                        : (photoCamCount === 1 ? 'PKR 12,000/day' : 'PKR 24,000/day')
                                                 )}
                                             </p>
                                         </div>
@@ -290,7 +290,7 @@ export const PackageBuilder = () => {
                                             <div className="space-y-0.5">
                                                 <Label className="flex items-center gap-2"><Plane className="w-4 h-4" /> Drone Coverage</Label>
                                                 <span className="text-xs text-muted-foreground">
-                                                    PKR 8,000/day
+                                                    {category === 'DSLR' ? 'PKR 8,000/day' : 'PKR 10,000/day'}
                                                 </span>
                                             </div>
                                             <Switch
