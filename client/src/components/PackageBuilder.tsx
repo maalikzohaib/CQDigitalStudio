@@ -36,18 +36,18 @@ const PRICING = {
     Mirrorless: {
         video: {
             1: 20000,
-            2: 40000,
+            2: 35000,
         },
         photo: {
             1: 12000,
             2: 22000,
         },
-        drone: 10000,
+        drone: 8000,
         albums: {
             'None': 0,
-            'Indian': 10000,
-            'Glass Window': 12000,
-            'Box': 15000,
+            'Indian': 12000,
+            'Glass Window': 15000,
+            'Box': 18000,
         },
     },
 };
@@ -166,7 +166,7 @@ export const PackageBuilder = () => {
                                         value={[days]}
                                         onValueChange={(v) => setDays(v[0])}
                                         min={1}
-                                        max={6}
+                                        max={5}
                                         step={1}
                                         className="py-4"
                                     />
@@ -176,7 +176,6 @@ export const PackageBuilder = () => {
                                         <span>3 Days</span>
                                         <span>4 Days</span>
                                         <span>5 Days</span>
-                                        <span>6 Days</span>
                                     </div>
                                 </div>
 
@@ -205,7 +204,7 @@ export const PackageBuilder = () => {
                                                 {videoCamCount === 0 ? 'No Charge' : (
                                                     category === 'DSLR'
                                                         ? (videoCamCount === 1 ? 'PKR 10,000/day' : 'PKR 18,000/day')
-                                                        : (videoCamCount === 1 ? 'PKR 20,000/day' : 'PKR 40,000/day')
+                                                        : (videoCamCount === 1 ? 'PKR 20,000/day' : 'PKR 35,000/day')
                                                 )}
                                             </p>
                                         </div>
@@ -259,9 +258,9 @@ export const PackageBuilder = () => {
                                                 </SelectTrigger>
                                                 <SelectContent>
                                                     <SelectItem value="None">None</SelectItem>
-                                                    <SelectItem value="Indian">Indian (PKR 10k)</SelectItem>
-                                                    <SelectItem value="Glass Window">Glass Window (PKR 12k)</SelectItem>
-                                                    <SelectItem value="Box">Box (PKR 15k)</SelectItem>
+                                                    <SelectItem value="Indian">Indian ({category === 'DSLR' ? 'PKR 10k' : 'PKR 12k'})</SelectItem>
+                                                    <SelectItem value="Glass Window">Glass Window ({category === 'DSLR' ? 'PKR 12k' : 'PKR 15k'})</SelectItem>
+                                                    <SelectItem value="Box">Box ({category === 'DSLR' ? 'PKR 15k' : 'PKR 18k'})</SelectItem>
                                                 </SelectContent>
                                             </Select>
 
@@ -291,7 +290,7 @@ export const PackageBuilder = () => {
                                             <div className="space-y-0.5">
                                                 <Label className="flex items-center gap-2"><Plane className="w-4 h-4" /> Drone Coverage</Label>
                                                 <span className="text-xs text-muted-foreground">
-                                                    {category === 'DSLR' ? 'PKR 8,000/day' : 'PKR 10,000/day'}
+                                                    PKR 8,000/day
                                                 </span>
                                             </div>
                                             <Switch
