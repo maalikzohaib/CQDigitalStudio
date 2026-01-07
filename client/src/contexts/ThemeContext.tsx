@@ -21,7 +21,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
             return 'dark';
         }
 
-        return 'light';
+        // Default to dark theme
+        return 'dark';
     });
 
     useEffect(() => {

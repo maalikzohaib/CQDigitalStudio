@@ -9,6 +9,13 @@
       "isVideo": false
     },
     {
+      "image": "/assets/hero/event-sample.png",
+      "title": "Event Photography Sample",
+      "category": "Photography",
+      "type": "Portrait",
+      "isVideo": false
+    },
+    {
       "image": "/assets/portfolio/portraits/photography-shoot-42.jpg",
       "title": "Photography Shoot 2",
       "category": "Photography",
